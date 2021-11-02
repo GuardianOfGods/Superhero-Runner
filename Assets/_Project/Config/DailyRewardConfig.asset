@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da4c63ef678a854a9c947cddebd867d, type: 3}
+  m_Name: DailyRewardConfig
+  m_EditorClassIdentifier: 
+  DailyRewardDatas:
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 6afd0d85-9acb-4362-b5c6-62650fdc0c35
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
+  - DailyRewardType: 0
+    Icon: {fileID: 0}
+    PrefixSizeIcon: {x: 0, y: 0}
+    Skin:
+      Id: 
+      BuyType: 0
+      SkinType: 0
+      Icon: {fileID: 0}
+      PrefixSizeIcon: {x: 0, y: 0}
+      Prefab: {fileID: 0}
+      Price: 0
+    Value: 0
