@@ -1,8 +1,5 @@
 {
   "dependencies": {
-	"com.google.firebase.analytics": "https://github.com/Gamee-Studio/firebase-analytics.git?path=Assets/_Root#8.1.0",
-"com.google.firebase.app": "https://github.com/Gamee-Studio/firebase-app.git?path=Assets/_Root#8.1.0",
-"com.google.external-dependency-manager": "https://github.com/Gamee-Studio/external-dependency-manager.git?path=Assets/_Root#1.2.166",
     "com.unity.addressables": "1.16.19",
     "com.unity.collab-proxy": "1.3.9",
     "com.unity.ide.rider": "3.0.5",
