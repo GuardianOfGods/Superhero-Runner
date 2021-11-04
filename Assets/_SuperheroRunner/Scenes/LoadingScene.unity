@@ -670,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1047350083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,8 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackgroundAudio: {fileID: 963764838}
   FxAudio: {fileID: 2054364017}
-  AudioClips:
-  - {fileID: 0}
+  AudioClips: []
 --- !u!4 &1047350084
 Transform:
   m_ObjectHideFlags: 0

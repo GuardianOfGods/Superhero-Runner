@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 3540566285154381283}
   - component: {fileID: 6461245684888168615}
   - component: {fileID: 8377949978831766691}
-  - component: {fileID: 4772912555681622829}
   m_Layer: 5
   m_Name: BtnStart
   m_TagString: Untagged
@@ -380,32 +379,6 @@ MonoBehaviour:
   TimeDelay: 0.5
   SizeScale: 0.1
   TimeScale: 0.7
---- !u!114 &4772912555681622829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4140034710552530372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectFactor: 0.355
-  m_Width: 0.095
-  m_Rotation: 114
-  m_Softness: 0.275
-  m_Brightness: 0.5
-  m_Gloss: 0.5
-  m_EffectArea: 0
-  m_Player:
-    play: 1
-    initialPlayDelay: 0
-    duration: 1
-    loop: 1
-    loopDelay: 0
-    updateMode: 0
 --- !u!1 &6631244465714846239
 GameObject:
   m_ObjectHideFlags: 0

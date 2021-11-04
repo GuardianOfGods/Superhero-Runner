@@ -46,11 +46,17 @@ public enum SettingType
 
 public enum SoundType
 {
-    BackgroundInGame,
-    BackgroundHome,
-    ButtonClick,
-    Win,
+    BackGroundMusic,
+    ClickBtn,
+    CollectArmor,
+    CollectGold,
+    PlayerDie,
+    Congrats,
+    FinishLevel,
+    Jump,
     Lose,
+    Punch,
+    WallCrush,
 }
 
 public enum DailyRewardType
