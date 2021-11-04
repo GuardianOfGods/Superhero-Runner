@@ -24,13 +24,4 @@ public class Road : MonoBehaviour
             RoadList.Add(plane);
         }
     }
-    
-    void Start()
-    {
-    }
-
-
-    void Update()
-    {
-    }
 }

@@ -7,9 +7,9 @@ public static partial class Data
 {
     #region GAME_DATA
 
-    public static int IndexLevelCurrent
+    public static int CurrentLevel
     {
-        get { return GetInt(Constant.INDEX_LEVEL_CURRENT, 0); }
+        get { return GetInt(Constant.INDEX_LEVEL_CURRENT, 1); }
 
         set
         {

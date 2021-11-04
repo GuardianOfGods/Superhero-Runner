@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public LevelUsedType LevelUsedType;
-    
     
 }
