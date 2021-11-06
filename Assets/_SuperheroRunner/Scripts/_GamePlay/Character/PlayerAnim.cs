@@ -5,6 +5,7 @@ using Animancer;
 
 public class PlayerAnim : MonoBehaviour
 {
+    public PlayerController PlayerController;
     public AnimancerComponent Animacer;
     
     public AnimationClip Idle;
@@ -24,6 +25,31 @@ public class PlayerAnim : MonoBehaviour
     
     public void PlayRun()
     {
-        Animacer.Play(Run);
+        if (!Animacer.IsPlaying(Run) && PlayerController.PlayerState!=PlayerState.Attacking) Animacer.Play(Run);
+    }
+
+    public void PlayDie()
+    {
+        Animacer.Play(Die);
+    }
+
+    public void PlayPunchLeft()
+    {
+        var state = Animacer.Play(PunchLeft);
+        state.Events.OnEnd = () =>
+        {
+            PlayRun();
+            PlayerController.PlayerState = PlayerState.Running;
+        };
+    }
+    
+    public void PlayPunchRight()
+    {
+       var state = Animacer.Play(PunchRight);
+       state.Events.OnEnd = () =>
+       {
+           PlayRun();
+           PlayerController.PlayerState = PlayerState.Running;
+       };
     }
 }

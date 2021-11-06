@@ -1,22 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float mass = 15;
-    public float maxVelocity = 3;
-    public float maxForce = 15;
-    public float radius;
+    [Header("GD only")]
+    [Range(1,1000)]public int Level;
 
-    private Vector3 _velocity = Vector3.zero;
-    public Transform target;
+    [Header("Dev only")]
+    public EnemyAnim EnemyAnim;
+    public TextMeshProUGUI LevelText;
 
-    private void Update()
+    
+    public void OnDrawGizmos()
     {
-        var force = Steering.Arrival(transform.position, target.position, radius, maxForce, _velocity, mass);
-        _velocity = Vector3.ClampMagnitude(_velocity + force, maxVelocity);
-        transform.position += _velocity * Time.deltaTime;
+        LevelText.text = $"Level {Level}";
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            bool isPlayerRightSide = player.transform.position.x > transform.position.x;
+            // Enemy win
+            if (player.Level < Level)
+            {
+                if (isPlayerRightSide)
+                {
+                    EnemyAnim.PlayPunchLeft();
+                    
+                }
+                else
+                {
+                    EnemyAnim.PlayPunchRight();
+                }
+                player.PlayerAnim.PlayDie();
+            }
+            // Player Win
+            else
+            {
+                player.PlayerState = PlayerState.Attacking;
+                player.LevelUp(Level);
+                if (isPlayerRightSide)
+                {
+                    player.PlayerAnim.PlayPunchRight();
+                    EnemyAnim.PlayDieLeft();
+                }
+                else
+                {
+                    player.PlayerAnim.PlayPunchLeft();
+                    EnemyAnim.PlayDieRight();
+                }
+            }
+        }
+    }
 }

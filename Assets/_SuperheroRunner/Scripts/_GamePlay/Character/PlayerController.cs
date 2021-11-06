@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("GD only")]
     [Range(1,100)] public float Speed;
-    
-    [Header("Dev only")]
+
+    [Header("Dev only")] 
+    [Range(1,10000)] public int Level;
+    public PlayerState PlayerState;
     public PlayerAnim PlayerAnim;
     public Rigidbody Rigid;
+    public TextMeshProUGUI LevelText;
+    
     private float _currentSpeed;
     //private bool _allowToMove { get { return (GameManager.Instance.currentGameState == GameState.PLAYING && state == LivingObjectState.LIVING); } }
 
@@ -22,11 +26,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        // if (!_allowToMove)
-        //     return;
+        if (PlayerState == PlayerState.Die || PlayerState == PlayerState.Idle)
+        {
+            return;
+        }
 
-        float _hor = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Horizontal;
+            float _hor = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Horizontal;
         float _ver = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Vertical;
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -48,16 +53,18 @@ public class PlayerController : MonoBehaviour
             Move(_moveDirection);
             
         }
-        else
-        {
-            PlayerAnim.PlayIdle();
-        }
     }
-    
+
+    public void OnDrawGizmos()
+    {
+        LevelText.text = $"Level {Level}";
+    }
+
     void Move(Vector3 moveDirection)
     {
         // if (_animator != null)
         //     _animator.SetFloat("move", moveDirection.magnitude, smoothBlend, Time.deltaTime);
+        
         PlayerAnim.PlayRun();
         moveDirection = moveDirection.z * Vector3.forward + moveDirection.x * Vector3.right;
         moveDirection *= _currentSpeed;
@@ -67,4 +74,18 @@ public class PlayerController : MonoBehaviour
 
         Rigid.velocity = moveDirection;
     }
+
+    public void LevelUp(int levelIncrease)
+    {
+        Level += levelIncrease;
+        LevelText.text = $"Level {Level}";
+    }
+}
+
+public enum PlayerState
+{
+    Idle,
+    Die,
+    Running,
+    Attacking,
 }
