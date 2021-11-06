@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed;
+    [Header("GD only")]
+    [Range(1,100)] public float Speed;
     
-    public Animator Animator;
+    [Header("Dev only")]
+    public PlayerAnim PlayerAnim;
     public Rigidbody Rigid;
-    
-    
     private float _currentSpeed;
     //private bool _allowToMove { get { return (GameManager.Instance.currentGameState == GameState.PLAYING && state == LivingObjectState.LIVING); } }
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Move(Vector3.zero);
+            PlayerAnim.PlayIdle();
         }
     }
     
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         // if (_animator != null)
         //     _animator.SetFloat("move", moveDirection.magnitude, smoothBlend, Time.deltaTime);
-
+        PlayerAnim.PlayRun();
         moveDirection = moveDirection.z * Vector3.forward + moveDirection.x * Vector3.right;
         moveDirection *= _currentSpeed;
 

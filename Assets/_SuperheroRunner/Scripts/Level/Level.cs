@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    
+    public PlayerController Player;
+
+    public void Start()
+    {
+        Player = GetComponentInChildren<PlayerController>();
+    }
 }
