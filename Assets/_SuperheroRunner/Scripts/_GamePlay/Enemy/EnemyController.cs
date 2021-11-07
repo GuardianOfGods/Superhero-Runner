@@ -13,6 +13,10 @@ public class EnemyController : MonoBehaviour
     public EnemyAnim EnemyAnim;
     public TextMeshProUGUI LevelText;
 
+    private void Start()
+    {
+        LevelText.text = $"Level {Level}";
+    }
     
     public void OnDrawGizmos()
     {
@@ -37,6 +41,8 @@ public class EnemyController : MonoBehaviour
                 {
                     EnemyAnim.PlayPunchRight();
                 }
+
+                player.PlayerState = PlayerState.Die;
                 player.PlayerAnim.PlayDie();
             }
             // Player Win

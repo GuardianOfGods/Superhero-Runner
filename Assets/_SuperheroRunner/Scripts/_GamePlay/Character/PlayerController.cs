@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         _currentSpeed = Speed;
+        LevelText.text = $"Level {Level}";
     }
 
     void FixedUpdate()
