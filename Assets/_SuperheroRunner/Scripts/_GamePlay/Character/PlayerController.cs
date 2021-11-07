@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTheAir;
     
     private float _currentSpeed;
+    private float _xPosFence = 0.49f;
     //private bool _allowToMove { get { return (GameManager.Instance.currentGameState == GameState.PLAYING && state == LivingObjectState.LIVING); } }
 
     public void Start()
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
         
         // Check grounded
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .05f, LayerMask.GetMask("Ground")))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Ground")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
             if (IsOnTheAir) PlayerState = PlayerState.Running;
@@ -60,9 +61,10 @@ public class PlayerController : MonoBehaviour
                 PlayerAnim.PlayFalling();
             }
         }
-        
-        float _hor = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Horizontal;
-        float _ver = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Vertical;
+
+        PopupInGame popupInGame = PopupController.Instance.GetComponentInChildren<PopupInGame>();
+        float _hor = popupInGame.DaiDynamicJoystick.Horizontal;
+        float _ver = popupInGame.DaiDynamicJoystick.Vertical;
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
@@ -71,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-             if (PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.isPointedDown)
+             if (popupInGame.DaiDynamicJoystick.isPointedDown)
             _ver = 1f;
         }
         
@@ -79,6 +81,8 @@ public class PlayerController : MonoBehaviour
             Vector3 _moveDirection = new Vector3(_hor, 0.0f, _ver);
             _moveDirection = _moveDirection.normalized;
             Move(_moveDirection);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -_xPosFence, _xPosFence),
+                    transform.position.y, transform.position.z);
     }
 
     public void OnDrawGizmos()
@@ -88,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 moveDirection)
     {
+        
         moveDirection = moveDirection.z * Vector3.forward + moveDirection.x * Vector3.right;
         moveDirection *= _currentSpeed;
 

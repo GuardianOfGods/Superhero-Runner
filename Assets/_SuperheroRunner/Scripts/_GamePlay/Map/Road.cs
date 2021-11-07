@@ -10,6 +10,7 @@ public class Road : MonoBehaviour
     
     [Header("DEV only")]
     public GameObject PlanePrefab;
+    public GameObject FinalCombatPlacePrefab;
 
     public List<GameObject> RoadList;
     
@@ -23,5 +24,8 @@ public class Road : MonoBehaviour
             plane.transform.position = new Vector3(0, 0, PlaneDistance * i);
             RoadList.Add(plane);
         }
+        
+        GameObject finalPlace = Instantiate(FinalCombatPlacePrefab, transform);
+        finalPlace.transform.position = new Vector3(finalPlace.transform.position.x, finalPlace.transform.position.y, PlaneDistance * NumberPlane-0.93f);
     }
 }
