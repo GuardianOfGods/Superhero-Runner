@@ -19,4 +19,9 @@ public class GameManager : Singleton<GameManager>
         GameState = GameState.PlayingGame;
         LevelController.PlayerStart();
     }
+
+    public bool IsPlayerCanMove()
+    {
+        return GameState == GameState.PlayingGame && LevelController.CurrentLevel.LevelState == LevelState.Running;
+    }
 }

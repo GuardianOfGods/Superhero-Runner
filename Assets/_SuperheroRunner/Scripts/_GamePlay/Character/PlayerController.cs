@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -34,13 +35,18 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAnim.PlayIdle();
         }
-        if (GameManager.Instance.GameState!=GameState.PlayingGame)
+        if (!GameManager.Instance.IsPlayerCanMove())
         {
             return;
         }
         
         // Check grounded
         RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Sea")))
+        {
+            PlayerAnim.PlayDie();
+            return;
+        }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Ground")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
@@ -118,6 +124,15 @@ public class PlayerController : MonoBehaviour
     {
         Level += levelIncrease;
         LevelText.text = $"Level {Level}";
+    }
+
+    public void MoveToAPoint(Vector3 pos) 
+    {
+        transform.DOMove(pos, .5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            PlayerAnim.PlayPunch();
+            GameManager.Instance.LevelController.CurrentLevel.Boss.BossAnim.PlayDie();
+        });
     }
 }
 

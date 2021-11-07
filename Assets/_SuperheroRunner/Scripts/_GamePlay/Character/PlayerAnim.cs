@@ -60,6 +60,12 @@ public class PlayerAnim : MonoBehaviour
         PlayerController.PlayerState = PlayerState.Die;
     }
 
+    public void PlayPunch()
+    {
+        var state = Animacer.Play(Punch);
+        PlayerController.PlayerState = PlayerState.Attacking;
+    }
+    
     public void PlayPunchLeft()
     {
         var state = Animacer.Play(PunchLeft);

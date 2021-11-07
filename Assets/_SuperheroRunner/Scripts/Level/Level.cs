@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public PlayerController Player;
+    public LevelState LevelState;
 
+    public PlayerController Player;
+    public BossController Boss;
+    
     public void Start()
     {
         Player = GetComponentInChildren<PlayerController>();
+        Boss = GetComponentInChildren<BossController>();
+        LevelState = LevelState.Running;
     }
+}
+
+public enum LevelState
+{
+    Running,
+    FinalCombat,
 }

@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelController: {fileID: 41970660}
+  GameState: 0
 --- !u!1 &857483764
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +432,7 @@ GameObject:
   - component: {fileID: 1499162643}
   - component: {fileID: 1499162642}
   - component: {fileID: 1499162641}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
