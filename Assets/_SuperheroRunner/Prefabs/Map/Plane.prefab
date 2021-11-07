@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174197806358453329}
   - component: {fileID: 174197806358453328}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 499c65ff9f50ed54485eb59a58c6f68f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378922297957006227, guid: 499c65ff9f50ed54485eb59a58c6f68f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 499c65ff9f50ed54485eb59a58c6f68f, type: 3}

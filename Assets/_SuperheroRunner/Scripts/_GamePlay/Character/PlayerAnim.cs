@@ -21,24 +21,48 @@ public class PlayerAnim : MonoBehaviour
     public void PlayIdle()
     {
         Animacer.Play(Idle);
+        PlayerController.PlayerState = PlayerState.Idle;
     }
     
     public void PlayRun()
     {
-        if (!Animacer.IsPlaying(Run) && PlayerController.PlayerState!=PlayerState.Attacking) Animacer.Play(Run);
+        if (!Animacer.IsPlaying(Run) && PlayerController.PlayerState != PlayerState.Attacking)
+        {
+            Animacer.Play(Run);
+            PlayerController.PlayerState = PlayerState.Running;
+        }
+    }
+    
+    public void PlayJump()
+    {
+        if (!Animacer.IsPlaying(Jump))
+        {
+            Animacer.Play(Jump);
+            PlayerController.PlayerState = PlayerState.Jumping;
+        }
+    }
+    
+    public void PlayFalling()
+    {
+        if (!Animacer.IsPlaying(Fall))
+        {
+            Animacer.Play(Fall);
+            PlayerController.PlayerState = PlayerState.Falling;
+        }
     }
 
     public void PlayDie()
     {
         Animacer.Play(Die);
+        PlayerController.PlayerState = PlayerState.Die;
     }
 
     public void PlayPunchLeft()
     {
         var state = Animacer.Play(PunchLeft);
+        PlayerController.PlayerState = PlayerState.Attacking;
         state.Events.OnEnd = () =>
         {
-            PlayRun();
             PlayerController.PlayerState = PlayerState.Running;
         };
     }
@@ -46,9 +70,9 @@ public class PlayerAnim : MonoBehaviour
     public void PlayPunchRight()
     {
        var state = Animacer.Play(PunchRight);
+       PlayerController.PlayerState = PlayerState.Attacking;
        state.Events.OnEnd = () =>
        {
-           PlayRun();
            PlayerController.PlayerState = PlayerState.Running;
        };
     }

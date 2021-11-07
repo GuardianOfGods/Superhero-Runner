@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
         if (LevelController.CurrentLevel!=null)
         {
             PlayerController player = LevelController.CurrentLevel.Player;
-            transform.position = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z-1);
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y+0.7f, player.transform.position.z-1);
         }
     }
 }

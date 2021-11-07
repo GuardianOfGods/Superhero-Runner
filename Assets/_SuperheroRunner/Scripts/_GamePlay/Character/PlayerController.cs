@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public PlayerAnim PlayerAnim;
     public Rigidbody Rigid;
     public TextMeshProUGUI LevelText;
+    public bool IsOnTheAir;
     
     private float _currentSpeed;
     //private bool _allowToMove { get { return (GameManager.Instance.currentGameState == GameState.PLAYING && state == LivingObjectState.LIVING); } }
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         _currentSpeed = Speed;
         LevelText.text = $"Level {Level}";
+        
     }
 
     void FixedUpdate()
@@ -31,8 +33,35 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
-            float _hor = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Horizontal;
+        
+        // Check grounded
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .05f, LayerMask.GetMask("Ground")))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
+            if (IsOnTheAir) PlayerState = PlayerState.Running;
+            IsOnTheAir = false;
+            if (PlayerState == PlayerState.Running)
+            {
+                PlayerAnim.PlayRun();
+            }
+        }
+        else
+        {
+            IsOnTheAir = true;
+            PlayerState = transform.position.y > 0 ? PlayerState.Jumping : PlayerState.Falling; 
+            if (PlayerState == PlayerState.Jumping)
+            {
+                PlayerAnim.PlayJump();
+                
+            }
+            else
+            {
+                PlayerAnim.PlayFalling();
+            }
+        }
+        
+        float _hor = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Horizontal;
         float _ver = PopupController.Instance.GetComponentInChildren<PopupInGame>().DaiDynamicJoystick.Vertical;
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -46,14 +75,10 @@ public class PlayerController : MonoBehaviour
             _ver = 1f;
         }
         
-        if (_hor != 0 || _ver > 0)
-        {
             _ver = 1f;
             Vector3 _moveDirection = new Vector3(_hor, 0.0f, _ver);
             _moveDirection = _moveDirection.normalized;
             Move(_moveDirection);
-            
-        }
     }
 
     public void OnDrawGizmos()
@@ -63,17 +88,21 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 moveDirection)
     {
-        // if (_animator != null)
-        //     _animator.SetFloat("move", moveDirection.magnitude, smoothBlend, Time.deltaTime);
-        
-        PlayerAnim.PlayRun();
         moveDirection = moveDirection.z * Vector3.forward + moveDirection.x * Vector3.right;
         moveDirection *= _currentSpeed;
 
-        // if(_isOnAir)
-        //     moveDirection.y = _rigid.velocity.y - fallingSpeed * Time.deltaTime;
+        if(IsOnTheAir)
+             moveDirection.y = Rigid.velocity.y - 0.01f * Time.deltaTime;
 
         Rigid.velocity = moveDirection;
+    }
+    
+    public void Jump(Vector3 forceAmount)
+    {
+        if (IsOnTheAir)
+            return;
+        Rigid.velocity = Vector3.zero;
+        Rigid.AddForce(forceAmount, ForceMode.Impulse);
     }
 
     public void LevelUp(int levelIncrease)
@@ -89,4 +118,6 @@ public enum PlayerState
     Die,
     Running,
     Attacking,
+    Jumping,
+    Falling,
 }
