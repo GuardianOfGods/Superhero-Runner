@@ -15,13 +15,8 @@ public class GameBase : EditorWindow
     public static void PlayFromLoadingScene(){
         EditorSceneManager.OpenScene("Assets/_SuperheroRunner/Scenes/LoadingScene.unity");
     }
-    
-    [MenuItem("GameBase/OPEN SCENE/Lobby Scene %F2")]
-    public static void PlayFromLobbyScene(){
-        EditorSceneManager.OpenScene("Assets/_SuperheroRunner/Scenes/LobbyScene.unity");
-    } 
-    
-    [MenuItem("GameBase/OPEN SCENE/Gameplay Scene %F3")]
+
+    [MenuItem("GameBase/OPEN SCENE/Gameplay Scene %F2")]
     public static void PlayFromGamePlayScene(){
         EditorSceneManager.OpenScene("Assets/_SuperheroRunner/Scenes/GamePlayScene.unity");
     } 

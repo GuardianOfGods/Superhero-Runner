@@ -5,16 +5,18 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public LevelController LevelController;
+    public GameState GameState;
     
     // Start is called before the first frame update
     void Start()
     {
-        LevelController.GenerateLevel(Data.CurrentLevel);
+        PopupController.Instance.Show<PopupHome>();
+        LevelController.PrepareLevel();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+        GameState = GameState.PlayingGame;
+        LevelController.PlayerStart();
     }
 }

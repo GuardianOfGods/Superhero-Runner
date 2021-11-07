@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PopupInGame : Popup
 {
-    
-    
     public DynamicJoystick DaiDynamicJoystick;
     
 }

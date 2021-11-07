@@ -7,9 +7,9 @@ public class PopupHome : Popup
 {
     public void OnClickStart()
     {
-        SceneManager.LoadScene(Constant.GAMEPLAY_SCENE);
         PopupController.Instance.HideAll();
         PopupController.Instance.Show<PopupInGame>();
+        GameManager.Instance.StartGame();
     }
     
     public void Debugging()

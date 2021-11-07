@@ -14,17 +14,13 @@ public class LoadingController : MonoBehaviour
     void Start()
     {
         #if UNITY_EDITOR
-            SceneManager.LoadScene(Constant.LOBBY_SCENE);
-            PopupController.Instance.Show<PopupUI>();
-            PopupController.Instance.Show<PopupHome>();
+            SceneManager.LoadScene(Constant.GAMEPLAY_SCENE);
             return;
         #endif
         ProgressBar.DOFillAmount(1, 5f);
         DOTween.Sequence().AppendInterval(5).AppendCallback(() =>
         {
-            SceneManager.LoadScene(Constant.LOBBY_SCENE);
-            PopupController.Instance.Show<PopupUI>();
-            PopupController.Instance.Show<PopupHome>();
+            SceneManager.LoadScene(Constant.GAMEPLAY_SCENE);
         });
     }
 

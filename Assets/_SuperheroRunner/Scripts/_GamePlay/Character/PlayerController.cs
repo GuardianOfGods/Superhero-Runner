@@ -25,12 +25,16 @@ public class PlayerController : MonoBehaviour
     {
         _currentSpeed = Speed;
         LevelText.text = $"Level {Level}";
-        
+        PlayerState = PlayerState.Idle;
     }
 
     void FixedUpdate()
     {
-        if (PlayerState == PlayerState.Die || PlayerState == PlayerState.Idle)
+        if (PlayerState == PlayerState.Idle)
+        {
+            PlayerAnim.PlayIdle();
+        }
+        if (GameManager.Instance.GameState!=GameState.PlayingGame)
         {
             return;
         }

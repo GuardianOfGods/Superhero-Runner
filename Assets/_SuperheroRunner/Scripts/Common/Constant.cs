@@ -29,7 +29,6 @@ public class Constant
 
     // Scene
     public const string LOADING_SCENE = "LoadingScene";
-    public const string LOBBY_SCENE = "LobbyScene";
     public const string GAMEPLAY_SCENE = "GameplayScene";
 
     // Remote Config

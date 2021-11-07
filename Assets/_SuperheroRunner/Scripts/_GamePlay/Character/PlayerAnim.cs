@@ -20,8 +20,11 @@ public class PlayerAnim : MonoBehaviour
 
     public void PlayIdle()
     {
-        Animacer.Play(Idle);
-        PlayerController.PlayerState = PlayerState.Idle;
+        if (!Animacer.IsPlaying(Idle))
+        {
+            Animacer.Play(Idle);
+            PlayerController.PlayerState = PlayerState.Idle;
+        }
     }
     
     public void PlayRun()

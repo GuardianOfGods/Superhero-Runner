@@ -7,6 +7,10 @@ public class LevelController : MonoBehaviour
     public Level CurrentLevel;
     public Level NextLevel;
 
+    public void PrepareLevel()
+    {
+        GenerateLevel(Data.CurrentLevel);
+    }
     
     public void GenerateLevel(int indexLevel)
     {
@@ -25,5 +29,10 @@ public class LevelController : MonoBehaviour
     {
         GameObject levelGO = Resources.Load($"Levels/Level_{indexLevel}") as GameObject;
         return levelGO.GetComponent<Level>();
+    }
+
+    public void PlayerStart()
+    {
+        CurrentLevel.Player.PlayerState = PlayerState.Running;
     }
 }

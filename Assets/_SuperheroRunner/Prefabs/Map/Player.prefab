@@ -410,10 +410,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.5
   Level: 1
-  PlayerState: 2
+  PlayerState: 0
   PlayerAnim: {fileID: 2430644853019562193}
   Rigid: {fileID: 8509177366076739305}
   LevelText: {fileID: 7744634840935451374}
+  IsOnTheAir: 0
 --- !u!114 &2430644853019562193
 MonoBehaviour:
   m_ObjectHideFlags: 0
