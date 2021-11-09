@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 2560884486212945430}
   - component: {fileID: 6391459625603637782}
   - component: {fileID: 7785825690002355332}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BonusPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,8 +842,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1531037, y: 0.7886619, z: 0.5586947}
-  m_Center: {x: 0.076551914, y: 0.397252, z: -0.0040439814}
+  m_Size: {x: 1.1531037, y: 0.7886619, z: 0.14215834}
+  m_Center: {x: 0.076551914, y: 0.397252, z: -0.008473866}
 --- !u!54 &5819855536986308575
 Rigidbody:
   m_ObjectHideFlags: 0

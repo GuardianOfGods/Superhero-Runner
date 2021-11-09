@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,7 +20,17 @@ public class BossController : MonoBehaviour
         Rigid.velocity = Vector3.forward*force;
         BossAnim.PlayHitAway();
     }
-    
+
+    private void FixedUpdate()
+    {
+        RaycastHit hit;
+        
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, .5f, LayerMask.GetMask("Wall")))
+        {
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * hit.distance, Color.red);
+            hit.transform.gameObject.GetComponent<BonusPlane>().TurnOnPhysicWall();
+        }
+    }
 }
 
 public enum BossType

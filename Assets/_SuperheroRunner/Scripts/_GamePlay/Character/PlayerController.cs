@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Dev only")] 
     [Range(1,10000)] public int Level;
+    [Range(1,10000)] public float PunchForce = 10f;
     public PlayerState PlayerState;
     public PlayerAnim PlayerAnim;
     public Rigidbody Rigid;
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
         transform.DOMove(pos, .5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             PlayerAnim.PlayPunch();
-            GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitAway(20);
+            GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitAway(PunchForce);
         });
     }
 }
