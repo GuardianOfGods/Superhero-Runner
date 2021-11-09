@@ -13,6 +13,15 @@ public class LoadingController : MonoBehaviour
     public TextMeshProUGUI LoadingText;
     void Start()
     {
+#if UNITY_EDITOR
+        ProgressBar.DOFillAmount(1, 1f);
+        DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
+        {
+            SceneManager.LoadScene(Constant.GAMEPLAY_SCENE);
+        });
+        return;
+#endif
+        
         ProgressBar.DOFillAmount(1, 5f);
         DOTween.Sequence().AppendInterval(5).AppendCallback(() =>
         {

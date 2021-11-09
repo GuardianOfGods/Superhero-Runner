@@ -18,7 +18,7 @@ public class BossAnim : MonoBehaviour
     
     public void PlayHitAway()
     {
-        Animacer.Play(HitAway);
+        if (!Animacer.IsPlaying(HitAway)) Animacer.Play(HitAway);
     }
 
     public void PlayDie()

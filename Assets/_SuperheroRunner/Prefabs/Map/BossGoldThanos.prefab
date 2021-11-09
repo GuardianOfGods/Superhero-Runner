@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 5801722764303398429}
   m_Layer: 0
   m_Name: BossGoldThanos
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2438915329912492654}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -263,6 +263,7 @@ MonoBehaviour:
   Level: 8
   BossType: 0
   BossAnim: {fileID: 4505553826564799428}
+  Rigid: {fileID: 8178224896766208059}
   LevelText: {fileID: 3156657893313526646}
 --- !u!114 &3283125848459197707
 MonoBehaviour:

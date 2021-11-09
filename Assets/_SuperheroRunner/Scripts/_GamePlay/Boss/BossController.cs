@@ -11,8 +11,14 @@ public class BossController : MonoBehaviour
     [Header("Dev only")] 
     public BossType BossType;
     public BossAnim BossAnim;
+    public Rigidbody Rigid;
     public TextMeshProUGUI LevelText;
-    
+
+    public void DoHitAway(float force)
+    {
+        Rigid.velocity = Vector3.forward*force;
+        BossAnim.PlayHitAway();
+    }
     
 }
 
