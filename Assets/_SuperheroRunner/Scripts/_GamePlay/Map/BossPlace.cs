@@ -23,7 +23,7 @@ public class BossPlace : MonoBehaviour
     {
         Utility.Clear(BossPos.transform);
         BossController boss = GetBossByTypeChosen();
-        Instantiate(boss.gameObject, BossPos);
+        GetComponentInParent<Level>().Boss = Instantiate(boss, BossPos);
     }
     
     private void OnTriggerEnter(Collider other)

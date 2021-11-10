@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BonusRoad))]
-public class BonusRoadEditor : Editor
+[CustomEditor(typeof(Level))]
+public class LevelEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        BonusRoad bonusRoad = (BonusRoad) target;
+        Level level = (Level) target;
         
         GUILayout.Space(20);
-        if (GUILayout.Button("Generate Bonus Road", GUILayout.Height(45)))
+        if (GUILayout.Button("Generate Map", GUILayout.Height(45)))
         {
-            bonusRoad.GenerateRoad();
+            level.GenerateMap();
         }
     }
 }

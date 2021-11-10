@@ -12,7 +12,7 @@ public class BossPlaceEditor : Editor
         BossPlace bossPlace = (BossPlace) target;
         
         GUILayout.Space(20);
-        if (GUILayout.Button("Generate Road", GUILayout.Height(45)))
+        if (GUILayout.Button("Generate Boss", GUILayout.Height(45)))
         {
             bossPlace.GenerateBoss();
         }

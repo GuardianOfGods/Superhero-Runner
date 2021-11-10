@@ -11,9 +11,9 @@ public class Road : MonoBehaviour
     [Header("DEV only")]
     public GameObject PlanePrefab;
     public GameObject FinalCombatPlacePrefab;
-
     public List<GameObject> RoadList;
-    
+    public GameObject BonusRoadPrefab;
+
     public void GenerateRoad()
     {
         RoadList.Clear();
@@ -27,5 +27,7 @@ public class Road : MonoBehaviour
         
         GameObject finalPlace = Instantiate(FinalCombatPlacePrefab, transform);
         finalPlace.transform.position = new Vector3(finalPlace.transform.position.x, finalPlace.transform.position.y, PlaneDistance * NumberPlane-0.93f);
+        
+        Instantiate(BonusRoadPrefab,new Vector3(BonusRoadPrefab.transform.position.x,BonusRoadPrefab.transform.position.y,finalPlace.transform.position.z+2), Quaternion.identity, transform);
     }
 }

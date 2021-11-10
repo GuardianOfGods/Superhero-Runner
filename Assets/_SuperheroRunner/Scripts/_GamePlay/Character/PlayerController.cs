@@ -132,8 +132,12 @@ public class PlayerController : MonoBehaviour
         transform.DOMove(pos, .5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             PlayerAnim.PlayPunch();
-            GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitAway(PunchForce);
         });
+    }
+
+    public void PunchBoss()
+    {
+        GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitedAway(PunchForce);
     }
 }
 

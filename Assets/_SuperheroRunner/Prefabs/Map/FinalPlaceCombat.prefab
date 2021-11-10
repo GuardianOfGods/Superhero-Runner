@@ -104,6 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64292901ff90cd04b86f6cd344d80f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChoseBossType: 0
+  Bosses:
+  - {fileID: 5462002964684177540, guid: 4b8f2e97c96a6e149893d4f2bbcc5eb7, type: 3}
   PlayerPos: {fileID: 2352453608138000578}
   BossPos: {fileID: 1111354710110797833}
 --- !u!1 &9045160312778378494

@@ -184,7 +184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 10
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.5
   Level: 1
+  PunchForce: 10
   PlayerState: 0
   PlayerAnim: {fileID: 2430644853019562193}
   Rigid: {fileID: 8509177366076739305}
@@ -438,6 +439,32 @@ MonoBehaviour:
   Punch: {fileID: 7400000, guid: ae621122f7f7ae045a563350612f4172, type: 2}
   PunchLeft: {fileID: 7400000, guid: 3ef745594121e0c4b81068075bf78caa, type: 2}
   PunchRight: {fileID: 7400000, guid: 4211c929df8afba4188f7bb3dcb85635, type: 2}
+  _Punch:
+    _FadeDuration: 0.25
+    _Events:
+      _NormalizedTimes:
+      - 0.5518061
+      - NaN
+      _Callbacks:
+      - m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 8509177366076739304}
+            m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+            m_MethodName: PunchBoss
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _Names:
+      - PunchBoss
+    _Clip: {fileID: 7400000, guid: ae621122f7f7ae045a563350612f4172, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0
 --- !u!114 &1198587277418675111
 MonoBehaviour:
   m_ObjectHideFlags: 0

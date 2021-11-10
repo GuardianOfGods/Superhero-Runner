@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +15,11 @@ public class PlayerAnim : MonoBehaviour
     public AnimationClip Fall;
     public AnimationClip Fly;
     public AnimationClip Jump;
-    public AnimationClip Punch;
+    public ClipTransition _Punch;
     public AnimationClip PunchLeft;
     public AnimationClip PunchRight;
-
+    
+    
     public void PlayIdle()
     {
         if (!Animacer.IsPlaying(Idle))
@@ -62,7 +64,7 @@ public class PlayerAnim : MonoBehaviour
 
     public void PlayPunch()
     {
-        var state = Animacer.Play(Punch);
+        var state = Animacer.Play(_Punch);
         PlayerController.PlayerState = PlayerState.Attacking;
     }
     

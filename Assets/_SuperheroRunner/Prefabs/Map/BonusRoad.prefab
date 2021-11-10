@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4341368343068948504
+--- !u!1 &6949610289580514865
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4341368343068948510}
-  - component: {fileID: 2867174260069076571}
+  - component: {fileID: 7781213218195026071}
+  - component: {fileID: 3479522956687669174}
   m_Layer: 0
-  m_Name: Road
+  m_Name: BonusRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4341368343068948510
+--- !u!4 &7781213218195026071
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4341368343068948504}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 6949610289580514865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2867174260069076571
+--- !u!114 &3479522956687669174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4341368343068948504}
+  m_GameObject: {fileID: 6949610289580514865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f28c54635027d4a8c9a6953be6cb2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 48d504a4db68cd44b8966493391ee12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NumberPlane: 1
-  PlaneDistance: 1.53
-  PlanePrefab: {fileID: 174197806358453330, guid: 324a81a66fa830a46a5f003b3080c845,
-    type: 3}
-  FinalCombatPlacePrefab: {fileID: 4739410113698355633, guid: a8884f6f69f26c540b56aeb085008703,
+  PlaneDistance: 1
+  PlanePrefab: {fileID: 3924257126664195189, guid: ed162f67c95e12541939725633545490,
     type: 3}
   RoadList: []
-  BonusRoadPrefab: {fileID: 6949610289580514865, guid: 007a0dd2cfcb2f7499bff4bff6d33f75,
-    type: 3}

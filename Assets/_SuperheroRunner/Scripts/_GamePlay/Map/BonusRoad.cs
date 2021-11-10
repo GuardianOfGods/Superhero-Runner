@@ -20,7 +20,7 @@ public class BonusRoad : MonoBehaviour
         for (int i = 0; i < NumberPlane; i++)
         {
             GameObject plane = Instantiate(PlanePrefab, transform);
-            plane.transform.position = new Vector3(0, 0, PlaneDistance * i);
+            plane.transform.localPosition = new Vector3(0, 0, PlaneDistance * i);
             RoadList.Add(plane);
         }
     }
