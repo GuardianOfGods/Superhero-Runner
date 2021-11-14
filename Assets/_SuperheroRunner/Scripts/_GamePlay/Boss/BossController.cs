@@ -24,7 +24,7 @@ public class BossController : MonoBehaviour
     public void DoRagDoll()
     {
         Rigid.constraints = RigidbodyConstraints.None;
-        Rigid.velocity = Vector3.zero;
+        Rigid.velocity = Vector3.forward;
     }
 
     private void FixedUpdate()
