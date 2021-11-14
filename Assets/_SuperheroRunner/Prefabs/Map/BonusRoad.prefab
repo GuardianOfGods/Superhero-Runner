@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberPlane: 1
   PlaneDistance: 1
-  PlanePrefab: {fileID: 3924257126664195189, guid: ed162f67c95e12541939725633545490,
+  ValueBonus: 1
+  DistanceValueBonus: 0.3
+  PlanePrefab: {fileID: 6391459625603637782, guid: ed162f67c95e12541939725633545490,
     type: 3}
   RoadList: []

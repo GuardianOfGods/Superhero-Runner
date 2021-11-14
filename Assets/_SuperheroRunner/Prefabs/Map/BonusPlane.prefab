@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af28965196a1a2f43834c38306baec28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  BonusValue: 0
   Bricks:
   - {fileID: 8248627108714498817}
   - {fileID: 6058428745028397754}
@@ -831,6 +831,7 @@ MonoBehaviour:
   - {fileID: 98407285583698942}
   - {fileID: 1012348768556348220}
   Canvas: {fileID: 2868827632374120804}
+  ValueText: {fileID: 3423585432100008144}
 --- !u!65 &7785825690002355332
 BoxCollider:
   m_ObjectHideFlags: 0

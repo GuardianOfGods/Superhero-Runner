@@ -21,6 +21,12 @@ public class BossController : MonoBehaviour
         BossAnim.PlayHitAway();
     }
 
+    public void DoRagDoll()
+    {
+        Rigid.constraints = RigidbodyConstraints.None;
+        Rigid.velocity = Vector3.zero;
+    }
+
     private void FixedUpdate()
     {
         RaycastHit hit;
@@ -28,7 +34,12 @@ public class BossController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, .5f, LayerMask.GetMask("Wall")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * hit.distance, Color.red);
-            hit.transform.gameObject.GetComponent<BonusPlane>().TurnOnPhysicWall();
+            BonusPlane bonusPlane = hit.transform.gameObject.GetComponent<BonusPlane>();
+            bonusPlane.TurnOnPhysicWall();
+            if (bonusPlane.LevelToReach+10 > GameManager.Instance.LevelController.CurrentLevel.Player.Level)
+            {
+                DoRagDoll();
+            }
         }
     }
 }
