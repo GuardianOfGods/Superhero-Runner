@@ -12,4 +12,5 @@ public static class EventController
     public static Action AdsRewardRequested;
     public static Action CurrentLevelChanged;
     public static Action CurrentEquipedSkinChanged;
+    public static Action SaveTotalCoin;
 }

@@ -19,6 +19,7 @@ public class GatherItem : MonoBehaviour
             {
                 case GatherItemType.Gem:
                     SoundController.Instance.PlayFX(SoundType.CollectGold);
+                    DiamondSpawn.Instance.SpawnDiamond(transform);
                     break;
             }
             
