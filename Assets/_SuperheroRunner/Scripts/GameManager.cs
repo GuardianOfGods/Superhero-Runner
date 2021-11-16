@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         PopupController.Instance.Show<PopupHome>();
+        PopupController.Instance.Show<PopupInGame>();
         LevelController.PrepareLevel();
     }
 

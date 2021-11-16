@@ -9,7 +9,7 @@ public class ButtonNoti : MonoBehaviour
     //
     // private void Start()
     // {
-    //     EventController.CoinTotalChanged += CheckNoti;
+    //     EventController.diamondTotalChanged += CheckNoti;
     //     EventController.LoginLeaderBoard += CheckNoti;
     // }
     //
@@ -64,6 +64,6 @@ public class ButtonNoti : MonoBehaviour
     //
     // private void OnDestroy()
     // {
-    //     EventController.CoinTotalChanged -= CheckNoti;
+    //     EventController.diamondTotalChanged -= CheckNoti;
     // }
 }

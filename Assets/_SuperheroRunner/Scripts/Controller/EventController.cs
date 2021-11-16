@@ -7,7 +7,7 @@ public static class EventController
 {
     public static Action OnWin;
     public static Action OnLose;
-    public static Action CoinTotalChanged;
+    public static Action diamondTotalChanged;
     public static Action AdsRewardLoaded;
     public static Action AdsRewardRequested;
     public static Action CurrentLevelChanged;

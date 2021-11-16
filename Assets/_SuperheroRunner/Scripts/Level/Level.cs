@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     public Road MainRoadPrefab;
     public PlayerController PlayerPrefab;
     [Header("Level Attributes")]
+    public int DiamondAmount;
     public LevelState LevelState;
     public Road MainRoad;
     public PlayerController Player;

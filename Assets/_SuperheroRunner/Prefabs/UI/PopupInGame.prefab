@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DaiDynamicJoystick: {fileID: 2241651111451791035}
+  diamondTotal: {fileID: 2005050027060601915}
 --- !u!1 &3744006384514501680
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea36036ada735346ba363f3ea0cd5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PopupInGame: {fileID: 701280590164817432}
   DiamondPrefab: {fileID: 9154016381948836792, guid: ab08538f15ac25444b7a1855138db3cc,
     type: 3}
   DestinationPos: {fileID: 4968925918940596088}
@@ -594,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f92ee2b202de04da6988e03a441543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinTotal: {fileID: 4469800771473872870}
+  DiamondTotalText: {fileID: 4469800771473872870}
 --- !u!1001 &8066941222856699132
 PrefabInstance:
   m_ObjectHideFlags: 0

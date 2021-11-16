@@ -78,7 +78,7 @@ public class DailyRewardPopup : Popup
         // AdController.Instance.ShowRewardedAd(() =>
         // {
         //     Data.LastDailyRewardClaim = DateTime.Now.ToString();
-        //     Data.CoinTotal += CurrentItem.CoinValue * 5;
+        //     Data.diamondTotal += CurrentItem.CoinValue * 5;
         // });
         UpdateContent();
     }
@@ -86,7 +86,7 @@ public class DailyRewardPopup : Popup
     public void OnClickClaimButton()
     {
         Data.LastDailyRewardClaim = DateTime.Now.ToString();
-        Data.CoinTotal += CurrentItem.CoinValue;
+        Data.DiamondTotal += CurrentItem.CoinValue;
         if (CurrentItem.DayIndex == 7)
         {
             SkinData.IsUnlocked = true;

@@ -13,14 +13,14 @@ public class CurrencyCounter : MonoBehaviour
 
     private void Start()
     {
-        EventController.CoinTotalChanged += UpdateCurrencyAmountText;
-        CurrencyAmountText.text = Data.CoinTotal.ToString();
+        EventController.diamondTotalChanged += UpdateCurrencyAmountText;
+        CurrencyAmountText.text = Data.DiamondTotal.ToString();
     }
     
     private void UpdateCurrencyAmountText()
     {
         int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);//100
-        int nextAmount = (Data.CoinTotal - currentCurrencyAmount)/StepCount;//(200 - 100)/10 = 10
+        int nextAmount = (Data.DiamondTotal - currentCurrencyAmount)/StepCount;//(200 - 100)/10 = 10
         int step = StepCount;
         CurrencyTextCount(currentCurrencyAmount, nextAmount,step);
     }
@@ -29,7 +29,7 @@ public class CurrencyCounter : MonoBehaviour
     {
         if (stepCount == 0)
         {
-            CurrencyAmountText.text = Data.CoinTotal.ToString();
+            CurrencyAmountText.text = Data.DiamondTotal.ToString();
             return;
         }
         int totalValue = (currentCurrencyValue + nextAmountValue);

@@ -6,6 +6,6 @@ public class PopupUI : Popup
 {
     public void Debugging()
     {
-        Data.CoinTotal += 100;
+        Data.DiamondTotal += 100;
     }
 }

@@ -71,13 +71,13 @@ public static partial class Data
 
     #region PLAYER_DATA
     
-    public static int CoinTotal
+    public static int DiamondTotal
     {
         get => GetInt(Constant.COIN_TOTAL, 0);
         set
         {
             SetInt(Constant.COIN_TOTAL, value);
-            EventController.CoinTotalChanged?.Invoke();
+            EventController.diamondTotalChanged?.Invoke();
         }
     }
 
