@@ -17,8 +17,6 @@ public class ButtonAd : MonoBehaviour
         //     ShowLoading();
         // }
     
-        EventController.AdsRewardLoaded += HideLoading;
-        EventController.AdsRewardRequested += ShowLoading;
     }
     
     private void ShowLoading()

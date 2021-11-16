@@ -21,7 +21,13 @@ public class GameBase : EditorWindow
         EditorSceneManager.OpenScene("Assets/_SuperheroRunner/Scenes/GamePlayScene.unity");
     } 
 
-    [MenuItem("GameBase/CLEAR DATA/CLEAR ALL DATA")]
+    [MenuItem("GameBase/DATA/Add 100k Diamonds")]
+    public static void Add100kDiamond()
+    {
+        Data.DiamondTotal += 100000;
+    }
+    
+    [MenuItem("GameBase/DATA/CLEAR ALL DATA")]
     public static void ClearAll()
     {
         PlayerPrefs.DeleteAll();

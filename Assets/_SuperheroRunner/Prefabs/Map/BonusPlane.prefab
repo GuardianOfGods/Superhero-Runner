@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 171814447119609437}
   - component: {fileID: 3766307688657020346}
   - component: {fileID: 5226574707602289547}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BonusValue: 0
+  LevelToReach: 0
   Bricks:
   - {fileID: 8248627108714498817}
   - {fileID: 6058428745028397754}
@@ -1186,7 +1187,7 @@ GameObject:
   - component: {fileID: 1871744286722929397}
   - component: {fileID: 2838421249443562385}
   - component: {fileID: 3423585432100008144}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1351,7 @@ GameObject:
   - component: {fileID: 5236940800737987548}
   - component: {fileID: 4749657989399694801}
   - component: {fileID: 7819278033250841494}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

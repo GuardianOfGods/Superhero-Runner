@@ -21,10 +21,13 @@ public class PlayerController : MonoBehaviour
     
     private float _currentSpeed;
     private float _xPosFence = 0.49f;
-    //private bool _allowToMove { get { return (GameManager.Instance.currentGameState == GameState.PLAYING && state == LivingObjectState.LIVING); } }
+    private PopupInGame popupInGame;
 
     public void Start()
     {
+        popupInGame = PopupController.Instance.GetComponentInChildren<PopupInGame>();
+        Level = Data.PlayerLevel;
+        
         _currentSpeed = Speed;
         LevelText.text = $"Level {Level}";
         PlayerState = PlayerState.Idle;
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        PopupInGame popupInGame = PopupController.Instance.GetComponentInChildren<PopupInGame>();
+        
         float _hor = popupInGame.DaiDynamicJoystick.Horizontal;
         float _ver = popupInGame.DaiDynamicJoystick.Vertical;
 
@@ -124,6 +127,12 @@ public class PlayerController : MonoBehaviour
     public void LevelUp(int levelIncrease)
     {
         Level += levelIncrease;
+        LevelText.text = $"Level {Level}";
+    }
+
+    public void UpdatePlayerLevel()
+    {
+        Level = Data.PlayerLevel;
         LevelText.text = $"Level {Level}";
     }
 

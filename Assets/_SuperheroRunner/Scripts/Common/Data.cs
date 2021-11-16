@@ -76,8 +76,19 @@ public static partial class Data
         get => GetInt(Constant.COIN_TOTAL, 0);
         set
         {
+            EventController.SaveDiamondTotal?.Invoke();
             SetInt(Constant.COIN_TOTAL, value);
-            EventController.diamondTotalChanged?.Invoke();
+            EventController.DiamondTotalChanged?.Invoke();
+        }
+    }
+    
+    public static int PlayerLevel
+    {
+        get => GetInt(Constant.PLAYER_LEVEL, 1);
+        set
+        {
+            SetInt(Constant.PLAYER_LEVEL, value);
+            EventController.CurrentPlayerLevelChanged?.Invoke();
         }
     }
 

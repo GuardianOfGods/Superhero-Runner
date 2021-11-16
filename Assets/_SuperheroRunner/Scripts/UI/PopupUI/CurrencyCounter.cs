@@ -13,7 +13,7 @@ public class CurrencyCounter : MonoBehaviour
 
     private void Start()
     {
-        EventController.diamondTotalChanged += UpdateCurrencyAmountText;
+        EventController.DiamondTotalChanged += UpdateCurrencyAmountText;
         CurrencyAmountText.text = Data.DiamondTotal.ToString();
     }
     

@@ -5,12 +5,10 @@ using UnityEngine;
 
 public static class EventController
 {
-    public static Action OnWin;
-    public static Action OnLose;
-    public static Action diamondTotalChanged;
-    public static Action AdsRewardLoaded;
-    public static Action AdsRewardRequested;
+    public static Action SaveDiamondTotal;
+    public static Action DiamondTotalChanged;
     public static Action CurrentLevelChanged;
+    public static Action CurrentPlayerLevelChanged;
     public static Action CurrentEquipedSkinChanged;
-    public static Action SaveTotalCoin;
+    
 }

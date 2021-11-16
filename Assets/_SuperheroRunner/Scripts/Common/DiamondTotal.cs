@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -7,20 +8,36 @@ using UnityEngine;
 public class DiamondTotal : MonoBehaviour
 {
     public TextMeshProUGUI DiamondTotalText;
-    private int currentTotalCoin;
 
-    void Start()
+    private int saveDiamond;
+    private Sequence sequence;
+    
+    private void Start()
     {
-        currentTotalCoin = Data.DiamondTotal;
+        EventController.SaveDiamondTotal += SaveDiamondTotal;
+        EventController.CurrentPlayerLevelChanged += UpdateCurrentTotalDiamond;
+
+        UpdateCurrentTotalDiamond();
     }
 
-    private void OnEnable()
+    public void SaveDiamondTotal()
     {
-        DiamondTotalText.text = Data.DiamondTotal.ToString();
+        saveDiamond = Data.DiamondTotal;
     }
 
     public void UpdateDiamondTotalText()
     {
         DiamondTotalText.text = $"{Data.DiamondTotal + LevelController.Instance.CurrentLevel.DiamondAmount}";
+    }
+
+    public void UpdateCurrentTotalDiamond()
+    {
+        sequence = DOTween.Sequence().AppendCallback(()=>
+        {
+            DOTween.To(() => saveDiamond, x => saveDiamond = x, Data.DiamondTotal, 0.3f).OnUpdate(() =>
+            {
+                DiamondTotalText.text = saveDiamond.ToString();
+            });
+        });
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Constant
 {
     public const string INDEX_LEVEL_CURRENT = "INDEX_LEVEL_CURRENT";
+    public const string PLAYER_LEVEL = "PLAYER_LEVEL";
 
     // Anim
 

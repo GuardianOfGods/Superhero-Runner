@@ -11,13 +11,12 @@ public class DiamondSpawn : Singleton<DiamondSpawn>
 
     public void SpawnDiamond(Transform spawnPos)
     {
-        Debug.Log(spawnPos);
         GameObject diamond = Instantiate(DiamondPrefab, spawnPos.position,Quaternion.identity,transform);
-        diamond.transform.DOMove(DestinationPos.position, 1f).OnComplete(() =>
+        diamond.transform.DOMove(DestinationPos.position, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
             LevelController.Instance.CurrentLevel.DiamondAmount += ConfigController.Game.DiamondPerGather;
             PopupInGame.diamondTotal.UpdateDiamondTotalText();
-            Destroy(DiamondPrefab);
+            DestroyImmediate(diamond);
         });
     }
 }

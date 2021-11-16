@@ -12,7 +12,7 @@ public class ConfigController : MonoBehaviour
     public static SoundConfig Sound;
     public static DailyRewardConfig DailyRewardConfig;
     public static SkinConfig SkinConfig;
-    
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
