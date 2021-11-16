@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PopupHome : Popup
 {
     public ButtonUpgradeLevel ButtonUpgradeLevel;
+    public ButtonUpgradePower ButtonUpgradePower;
 
     protected override void BeforeShow()
     {
@@ -16,6 +17,7 @@ public class PopupHome : Popup
     public void Setup()
     {
         ButtonUpgradeLevel.Setup();
+        ButtonUpgradePower.Setup();
     }
     
     public void OnClickStart()
@@ -31,21 +33,20 @@ public class PopupHome : Popup
         if (Data.DiamondTotal >= cost)
         {
             Data.DiamondTotal -= cost;
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             Data.PlayerLevel++;
             LevelController.Instance.CurrentLevel.Player.UpdatePlayerLevel();
         }
         ButtonUpgradeLevel.Setup();
+    }
+    
+    public void OnClickPowerUpgrade()
+    {
+        int cost = ConfigController.Game.GetCostToUpgradePower(Data.PlayerPower + 1);
+        if (Data.DiamondTotal >= cost)
+        {
+            Data.DiamondTotal -= cost;
+            Data.PlayerPower++;
+        }
+        ButtonUpgradePower.Setup();
     }
 }

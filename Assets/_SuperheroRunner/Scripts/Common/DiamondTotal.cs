@@ -15,7 +15,7 @@ public class DiamondTotal : MonoBehaviour
     private void Start()
     {
         EventController.SaveDiamondTotal += SaveDiamondTotal;
-        EventController.CurrentPlayerLevelChanged += UpdateCurrentTotalDiamond;
+        EventController.CurrentUpgradeChanged += UpdateCurrentTotalDiamond;
 
         UpdateCurrentTotalDiamond();
     }

@@ -88,7 +88,17 @@ public static partial class Data
         set
         {
             SetInt(Constant.PLAYER_LEVEL, value);
-            EventController.CurrentPlayerLevelChanged?.Invoke();
+            EventController.CurrentUpgradeChanged?.Invoke();
+        }
+    }
+    
+    public static int PlayerPower
+    {
+        get => GetInt(Constant.PLAYER_POWER, 0);
+        set
+        {
+            SetInt(Constant.PLAYER_POWER, value);
+            EventController.CurrentUpgradeChanged?.Invoke();
         }
     }
 
