@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour
         {
             PlayerAnim.PlayIdle();
         }
-        if (!GameManager.Instance.IsPlayerCanMove())
+        if (!GameManager.Instance.IsPlayerCanMove()  || PlayerState == PlayerState.Landing)
         {
             return;
-        }
+        }    
         
         // Check grounded
         RaycastHit hit;
@@ -54,11 +54,15 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Ground")))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
-            if (IsOnTheAir) PlayerState = PlayerState.Running;
+            if (IsOnTheAir) PlayerState = PlayerState.Landing;
             IsOnTheAir = false;
             if (PlayerState == PlayerState.Running)
             {
                 PlayerAnim.PlayRun();
+            }
+            else if (PlayerState == PlayerState.Landing)
+            {
+                PlayerAnim.PlayLand();
             }
         }
         else
@@ -68,7 +72,6 @@ public class PlayerController : MonoBehaviour
             if (PlayerState == PlayerState.Jumping)
             {
                 PlayerAnim.PlayJump();
-                
             }
             else
             {
@@ -146,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
     public void PunchBoss()
     {
+        SoundController.Instance.PlayFX(SoundType.Punch);
         GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitedAway(PunchForce);
     }
 }
@@ -158,4 +162,5 @@ public enum PlayerState
     Attacking,
     Jumping,
     Falling,
+    Landing,
 }

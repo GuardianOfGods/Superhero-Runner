@@ -15,6 +15,7 @@ public class PlayerAnim : MonoBehaviour
     public AnimationClip Fall;
     public AnimationClip Fly;
     public AnimationClip Jump;
+    public AnimationClip Land;
     public ClipTransition _Punch;
     public AnimationClip PunchLeft;
     public AnimationClip PunchRight;
@@ -44,6 +45,20 @@ public class PlayerAnim : MonoBehaviour
         {
             Animacer.Play(Jump);
             PlayerController.PlayerState = PlayerState.Jumping;
+        }
+    }
+    
+    public void PlayLand()
+    {
+        if (!Animacer.IsPlaying(Land))
+        {
+            PlayerController.PlayerState = PlayerState.Landing;
+            var state = Animacer.Play(Land);
+            state.Events.OnEnd = () =>
+            {
+                PlayerController.PlayerState = PlayerState.Running;
+            };
+            
         }
     }
     

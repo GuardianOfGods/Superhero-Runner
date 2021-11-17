@@ -15,8 +15,13 @@ public class BonusPlane : MonoBehaviour
     public GameObject Canvas;
     public TextMeshProUGUI ValueText;
 
+    private bool isBreak;
+
     public void TurnOnPhysicWall()
     {
+        if (isBreak) return;
+        isBreak = true;
+        SoundController.Instance.PlayFX(SoundType.WallCrush);
         Bricks.ForEach(item=>item.isKinematic=false);
         Bricks[0].gameObject.SetActive(false);
         Canvas.SetActive(false);

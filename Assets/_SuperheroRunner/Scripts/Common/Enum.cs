@@ -21,7 +21,7 @@ public enum SettingType
 
 public enum SoundType
 {
-    BackGroundMusic,
+    BackgroundMusic,
     ClickBtn,
     CollectArmor,
     CollectGold,

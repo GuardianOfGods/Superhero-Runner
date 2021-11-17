@@ -75,7 +75,7 @@ public class BossController : MonoBehaviour
             Debug.DrawRay(Rigid.transform.position, Rigid.transform.TransformDirection(Vector3.back) * hit.distance, Color.red);
             BonusPlane bonusPlane = hit.transform.gameObject.GetComponent<BonusPlane>();
             bonusPlane.TurnOnPhysicWall();
-            if (bonusPlane.LevelToReach+10 > GameManager.Instance.LevelController.CurrentLevel.Player.Level)
+            if (bonusPlane.LevelToReach == Data.PlayerPower)
             {
                 DoRagDoll();
             }

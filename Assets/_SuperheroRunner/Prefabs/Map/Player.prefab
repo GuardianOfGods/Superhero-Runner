@@ -436,7 +436,8 @@ MonoBehaviour:
   Die: {fileID: 7400000, guid: 2f13fdceaf8203343a9e8ac822b441b7, type: 2}
   Fall: {fileID: 7400000, guid: 60796442b9a4afa4f9b74e470782e82b, type: 2}
   Fly: {fileID: 7400000, guid: 8447f4dac221a1547b7f69305074bf5e, type: 2}
-  Jump: {fileID: 7400000, guid: a56e8009fa6b3a040a46f1d1674d1fff, type: 2}
+  Jump: {fileID: 7400000, guid: 4b83c6d0ce4de9c44a6ccf0dc230d422, type: 2}
+  Land: {fileID: 7400000, guid: 4eccdc5c5596e2b4bbb1ca4a5ce83aac, type: 2}
   _Punch:
     _FadeDuration: 0.25
     _Events:
@@ -461,7 +462,7 @@ MonoBehaviour:
       _Names:
       - PunchBoss
     _Clip: {fileID: 7400000, guid: ae621122f7f7ae045a563350612f4172, type: 2}
-    _Speed: 1
+    _Speed: 2
     _NormalizedStartTime: 0
   PunchLeft: {fileID: 7400000, guid: 3ef745594121e0c4b81068075bf78caa, type: 2}
   PunchRight: {fileID: 7400000, guid: 4211c929df8afba4188f7bb3dcb85635, type: 2}

@@ -9,7 +9,7 @@ public class BonusRoad : MonoBehaviour
     public float PlaneDistance;
     [Range(1f, 100f)] public float ValueBonus = 1f;
     [Range(0.1f, 2f)] public float DistanceValueBonus = 0.3f;
-    [Range(1, 100)] public int LevelDistanceToReach = 10;
+    [Range(1, 100)] public int PowerToReach = 1;
     [Header("DEV only")]
     public BonusPlane PlanePrefab;
 
@@ -22,7 +22,7 @@ public class BonusRoad : MonoBehaviour
         for (int i = 0; i < NumberPlane; i++)
         {
             BonusPlane plane = Instantiate(PlanePrefab, transform);
-            plane.Setup(ValueBonus+DistanceValueBonus*i,i*LevelDistanceToReach);
+            plane.Setup(ValueBonus+DistanceValueBonus*i,i*PowerToReach);
             plane.transform.localPosition = new Vector3(0, 0, PlaneDistance * i);
             RoadList.Add(plane);
         }
