@@ -78,6 +78,9 @@ public class BossController : MonoBehaviour
             if (bonusPlane.LevelToReach == Data.PlayerPower)
             {
                 DoRagDoll();
+                LevelController.Instance.CurrentLevel.BonusPoint = bonusPlane.BonusValue;
+                GameManager.Instance.GameState = GameState.EndGame;
+                PopupController.Instance.Show<PopupWin>();
             }
         }
     }

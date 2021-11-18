@@ -10,5 +10,5 @@ public static class EventController
     public static Action CurrentLevelChanged;
     public static Action CurrentUpgradeChanged;
     public static Action CurrentEquipedSkinChanged;
-    
+
 }
