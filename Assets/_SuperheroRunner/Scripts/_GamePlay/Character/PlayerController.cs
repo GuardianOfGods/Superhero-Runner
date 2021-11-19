@@ -35,11 +35,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerState == PlayerState.Idle)
+        if (PlayerState == PlayerState.Idle )
         {
             PlayerAnim.PlayIdle();
         }
-        if (!GameManager.Instance.IsPlayerCanMove()  || PlayerState == PlayerState.Landing)
+        if (!GameManager.Instance.IsPlayerCanMove()  || PlayerState == PlayerState.Landing || PlayerState==PlayerState.Die)
         {
             return;
         }    
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Sea")))
         {
             PlayerAnim.PlayDie();
+            GameManager.Instance.OnLoseGame();
             return;
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Ground")))

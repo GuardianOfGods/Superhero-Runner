@@ -75,12 +75,12 @@ public class BossController : MonoBehaviour
             Debug.DrawRay(Rigid.transform.position, Rigid.transform.TransformDirection(Vector3.back) * hit.distance, Color.red);
             BonusPlane bonusPlane = hit.transform.gameObject.GetComponent<BonusPlane>();
             bonusPlane.TurnOnPhysicWall();
-            if (bonusPlane.LevelToReach == Data.PlayerPower)
+            if (bonusPlane.LevelToReach == Data.PlayerPower && GameManager.Instance.GameState == GameState.PlayingGame)
             {
                 DoRagDoll();
                 LevelController.Instance.CurrentLevel.BonusPoint = bonusPlane.BonusValue;
-                GameManager.Instance.GameState = GameState.EndGame;
-                PopupController.Instance.Show<PopupWin>();
+                GameManager.Instance.OnWinGame();
+                
             }
         }
     }

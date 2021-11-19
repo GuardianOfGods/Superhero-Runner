@@ -9,13 +9,12 @@ public class Level : MonoBehaviour
     public PlayerController PlayerPrefab;
     [Header("Level Attributes")]
     public LevelType LevelType;
-    public int DiamondAmount;
+    public int DiamondGather;
     public LevelState LevelState;
     public Road MainRoad;
     public PlayerController Player;
     public BossController Boss;
     public float BonusPoint;
-
     public void Start()
     {
         LevelState = LevelState.Running;

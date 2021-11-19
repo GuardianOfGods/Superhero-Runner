@@ -16,6 +16,7 @@ public class DiamondTotal : MonoBehaviour
     {
         EventController.SaveDiamondTotal += SaveDiamondTotal;
         EventController.CurrentUpgradeChanged += UpdateCurrentTotalDiamond;
+        EventController.DiamondTotalChanged += UpdateCurrentTotalDiamond;
 
         UpdateCurrentTotalDiamond();
     }
@@ -27,7 +28,7 @@ public class DiamondTotal : MonoBehaviour
 
     public void UpdateDiamondTotalText()
     {
-        DiamondTotalText.text = $"{Data.DiamondTotal + LevelController.Instance.CurrentLevel.DiamondAmount}";
+        DiamondTotalText.text = $"{Data.DiamondTotal + LevelController.Instance.CurrentLevel.DiamondGather}";
     }
 
     public void UpdateCurrentTotalDiamond()

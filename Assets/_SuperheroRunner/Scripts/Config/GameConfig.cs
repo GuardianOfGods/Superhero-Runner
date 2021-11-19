@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObject/GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    [Header("GD config")] 
+    [Header("GD config")]
     public int DiamondWinValueNormal=35;
     public int DiamondWinValueSpecial=50;
     public int CostUpgradeFirstLevel = 45;
@@ -13,7 +13,7 @@ public class GameConfig : ScriptableObject
     public int CostPerUpgradePower = 15;
     [Range(1,1000)] public int DiamondPerGather = 10;
 
-    [Header("Dev config")]
+    [Header("Dev config")] public int MaxLevel = 1;
     [Range(.1f,1f)] public float DurationPopup = .5f;
     
     public int GetCostToUpgradeLevel(int level)

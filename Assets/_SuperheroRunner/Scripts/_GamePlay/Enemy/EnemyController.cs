@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
 
                 player.PlayerState = PlayerState.Die;
                 player.PlayerAnim.PlayDie();
+                GameManager.Instance.OnLoseGame();
             }
             // Player Win
             else

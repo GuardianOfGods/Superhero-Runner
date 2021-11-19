@@ -19,6 +19,11 @@ public class LevelController : Singleton<LevelController>
             Destroy(CurrentLevel.gameObject);
         }
 
+        if (indexLevel > ConfigController.Game.MaxLevel)
+        {
+            indexLevel = (indexLevel-1) % ConfigController.Game.MaxLevel + 1;
+        }
+
         Level level = GetLevelByIndex(indexLevel);
         
         CurrentLevel = Instantiate(level);
