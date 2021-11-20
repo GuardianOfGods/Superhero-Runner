@@ -21,13 +21,13 @@ public class BossController : MonoBehaviour
 
     public void Start()
     {
-        ListCol.AddRange(transform.GetChild(0).GetChild(0).GetComponentsInChildren<Collider>());
-        ListRid.AddRange(transform.GetChild(0).GetChild(0).GetComponentsInChildren<Rigidbody>());
-        Setup();
+        SetupRagdoll();
     }
 
-    public void Setup()
+    public void SetupRagdoll()
     {
+        ListCol.AddRange(transform.GetChild(0).GetChild(0).GetComponentsInChildren<Collider>());
+        ListRid.AddRange(transform.GetChild(0).GetChild(0).GetComponentsInChildren<Rigidbody>());
         for (int i = 0; i < ListCol.Count-1; i++)
         {
             for (int j = i + 1; j < ListCol.Count; j++)

@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody Rigid;
     public TextMeshProUGUI LevelText;
     public bool IsOnTheAir;
+    public List<Collider> ListCol;
+    public List<Rigidbody> ListRid;
     
     private float _currentSpeed;
     private float _xPosFence = 0.49f;
@@ -27,10 +29,47 @@ public class PlayerController : MonoBehaviour
     {
         popupInGame = PopupController.Instance.GetComponentInChildren<PopupInGame>();
         Level = Data.PlayerLevel;
-        
+
+        SetupRagdoll();
         _currentSpeed = Speed;
         LevelText.text = $"Level {Level}";
         PlayerState = PlayerState.Idle;
+    }
+    
+    public void SetupRagdoll()
+    {
+        ListCol.AddRange(transform.GetChild(0).GetChild(1).GetComponentsInChildren<Collider>());
+        ListRid.AddRange(transform.GetChild(0).GetChild(1).GetComponentsInChildren<Rigidbody>());
+        for (int i = 0; i < ListCol.Count-1; i++)
+        {
+            for (int j = i + 1; j < ListCol.Count; j++)
+            {
+                Physics.IgnoreCollision(ListCol[i],ListCol[j]);
+            }
+        }
+        for (int i = 0; i < ListCol.Count; i++)
+        {
+            ListRid[i].isKinematic = true;
+        }
+    }
+    
+      
+    public void DoRagDoll()
+    {
+        Rigid.velocity = Vector3.zero;
+        PlayerAnim.Animacer.Animator.enabled = false;
+        ListCol.ForEach(item=>
+        {
+            item.enabled = false;
+            item.enabled = true;
+            //item.attachedRigidbody.velocity = Vector3.zero;
+            //item.attachedRigidbody.angularVelocity = Vector3.zero;
+        });
+        ListRid.ForEach(item=>
+        {
+            item.isKinematic = false;
+            //item.AddForce(Vector3.down);
+        });
     }
 
     void FixedUpdate()
@@ -48,7 +87,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Sea")))
         {
-            PlayerAnim.PlayDie();
+            DoRagDoll();
             GameManager.Instance.OnLoseGame();
             return;
         }
@@ -102,6 +141,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -_xPosFence, _xPosFence),
                     transform.position.y, transform.position.z);
     }
+  
 
     public void OnDrawGizmos()
     {
