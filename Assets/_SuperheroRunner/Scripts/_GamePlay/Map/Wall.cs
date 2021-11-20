@@ -15,12 +15,13 @@ public class Wall : MonoBehaviour
             {
                 if (player.transform.position.x > transform.position.x)
                 {
-                    player.PlayerAnim.PlayPunchRight();
+                    player.PunchRight();
                 }
                 else
                 {
-                    player.PlayerAnim.PlayPunchLeft();
+                    player.PunchLeft();
                 }
+                SoundController.Instance.PlayFX(SoundType.WallCrush);
                 WallBroken();
             }
             else

@@ -163,13 +163,27 @@ public class PlayerController : MonoBehaviour
     {
         if (IsOnTheAir)
             return;
+        SoundController.Instance.PlayFX(SoundType.Jump);
         Rigid.velocity = Vector3.zero;
         Rigid.AddForce(forceAmount, ForceMode.Impulse);
+    }
+
+    public void PunchLeft()
+    {
+        SoundController.Instance.PlayFX(SoundType.Punch);
+        PlayerAnim.PlayPunchLeft();
+    }
+
+    public void PunchRight()
+    {
+        SoundController.Instance.PlayFX(SoundType.Punch);
+        PlayerAnim.PlayPunchRight();
     }
 
     public void DieNormal()
     {
         if (PlayerState==PlayerState.Die) return;
+        SoundController.Instance.PlayFX(SoundType.PlayerDie);
         PlayerAnim.PlayDie();
         GameManager.Instance.OnLoseGame();
     }
@@ -177,6 +191,7 @@ public class PlayerController : MonoBehaviour
     public void DieRagdoll()
     {
         if (PlayerState==PlayerState.Die) return;
+        SoundController.Instance.PlayFX(SoundType.PlayerDie);
         DoRagDoll();
         GameManager.Instance.OnLoseGame();
     }

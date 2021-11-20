@@ -42,8 +42,10 @@ public class GameManager : Singleton<GameManager>
     public void OnWinGame()
     {
         GameState = GameState.EndGame;
+        SoundController.Instance.PlayFX(SoundType.FinishLevel);
         DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
         {
+            SoundController.Instance.PlayFX(SoundType.Congrats);
             PopupController.Instance.Hide<PopupInGame>();
             PopupController.Instance.Show<PopupWin>();
         });
@@ -52,6 +54,7 @@ public class GameManager : Singleton<GameManager>
     public void OnLoseGame()
     {
         GameState = GameState.EndGame;
+        SoundController.Instance.PlayFX(SoundType.Lose);
         DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
         {
             PopupController.Instance.Hide<PopupInGame>();

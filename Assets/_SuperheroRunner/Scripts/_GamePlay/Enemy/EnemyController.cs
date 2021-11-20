@@ -42,8 +42,7 @@ public class EnemyController : MonoBehaviour
                     EnemyAnim.PlayPunchRight();
                 }
                 
-                player.PlayerAnim.PlayDie();
-                GameManager.Instance.OnLoseGame();
+                player.DieNormal();
             }
             // Player Win
             else
@@ -52,12 +51,12 @@ public class EnemyController : MonoBehaviour
                 player.LevelUp(Level);
                 if (isPlayerRightSide)
                 {
-                    player.PlayerAnim.PlayPunchRight();
+                    player.PunchRight();
                     EnemyAnim.PlayDieLeft();
                 }
                 else
                 {
-                    player.PlayerAnim.PlayPunchLeft();
+                    player.PunchLeft();
                     EnemyAnim.PlayDieRight();
                 }
             }
