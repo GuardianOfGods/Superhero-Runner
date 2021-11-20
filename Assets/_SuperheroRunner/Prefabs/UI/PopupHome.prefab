@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEBUG
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ad72038def066c4a895b4e12fbb66d9, type: 2}
   m_sharedMaterial: {fileID: -6329742134275993415, guid: 2ad72038def066c4a895b4e12fbb66d9,
@@ -294,11 +294,11 @@ RectTransform:
   m_Father: {fileID: 1388240616018008272}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 28, y: 38}
-  m_SizeDelta: {x: 364, y: 192}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -45, y: 47}
+  m_SizeDelta: {x: 309.8717, y: 142.5786}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &447508402800222697
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5522501779321461619}
         m_TargetAssemblyTypeName: PopupHome, Assembly-CSharp
-        m_MethodName: Debugging
+        m_MethodName: OnClickNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

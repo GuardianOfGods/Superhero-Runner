@@ -49,4 +49,10 @@ public class PopupHome : Popup
         }
         ButtonUpgradePower.Setup();
     }
+
+    public void OnClickNext()
+    {
+        Data.CurrentLevel++;
+        GameManager.Instance.ReturnHome();
+    }
 }
