@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c6dd8ae2ee1da4db653e7719b669f5, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SpeedTouch: 5
-  SpeedCamera: 7
-  SpeedCameraZoom: 20
-  ValueCameraZoomIn: 40
-  ValueCameraZoomOut: 60
-  DistanceCombat: 10
+  DiamondWinValueNormal: 35
+  DiamondWinValueSpecial: 50
+  CostUpgradeFirstLevel: 45
+  CostPerUpgradeLevel: 5
+  CostUpgradeFirstPower: 75
+  CostPerUpgradePower: 15
+  DiamondPerGather: 10
+  MaxLevel: 2
   DurationPopup: 0.5
-  EnableAds: 0
-  EnableTest: 0

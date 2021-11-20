@@ -25,7 +25,7 @@ public class ConfigController : MonoBehaviour
         if (Data.DateTimeStart == "")
         {
             Data.DateTimeStart = DateTime.Now.ToString();
-            SkinConfig.SkinDatas[0].IsUnlocked = true;
+            //SkinConfig.SkinDatas[0].IsUnlocked = true;
         }
     }
 }

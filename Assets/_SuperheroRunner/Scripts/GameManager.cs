@@ -16,11 +16,15 @@ public class GameManager : Singleton<GameManager>
 
     public void ReturnHome()
     {
+        // Sound
         SoundController.Instance.PlayBackground(SoundType.BackgroundMusic);
         
+        // Popup
         PopupController.Instance.HideAll();
         PopupController.Instance.Show<PopupHome>();
         PopupController.Instance.Show<PopupInGame>();
+        
+        // Level
         LevelController.PrepareLevel();
     }
 
