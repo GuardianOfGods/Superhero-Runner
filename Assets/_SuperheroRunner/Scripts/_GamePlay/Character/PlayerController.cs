@@ -87,8 +87,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Sea")))
         {
-            DoRagDoll();
-            GameManager.Instance.OnLoseGame();
+            DieRagdoll();
             return;
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, .1f, LayerMask.GetMask("Ground")))
@@ -166,6 +165,20 @@ public class PlayerController : MonoBehaviour
             return;
         Rigid.velocity = Vector3.zero;
         Rigid.AddForce(forceAmount, ForceMode.Impulse);
+    }
+
+    public void DieNormal()
+    {
+        if (PlayerState==PlayerState.Die) return;
+        PlayerAnim.PlayDie();
+        GameManager.Instance.OnLoseGame();
+    }
+
+    public void DieRagdoll()
+    {
+        if (PlayerState==PlayerState.Die) return;
+        DoRagDoll();
+        GameManager.Instance.OnLoseGame();
     }
 
     public void LevelUp(int levelIncrease)

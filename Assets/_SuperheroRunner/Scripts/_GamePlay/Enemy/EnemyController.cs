@@ -41,8 +41,7 @@ public class EnemyController : MonoBehaviour
                 {
                     EnemyAnim.PlayPunchRight();
                 }
-
-                player.PlayerState = PlayerState.Die;
+                
                 player.PlayerAnim.PlayDie();
                 GameManager.Instance.OnLoseGame();
             }

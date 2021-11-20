@@ -46354,6 +46354,8 @@ MonoBehaviour:
   Rigid: {fileID: 4540631354026224916}
   LevelText: {fileID: 6729728615923261835}
   IsOnTheAir: 0
+  ListCol: []
+  ListRid: []
 --- !u!114 &8237204338013695392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123443,7 +123445,7 @@ PrefabInstance:
     - target: {fileID: 3473269747767513384, guid: f570e460a1b72f04582f40fe66d80223,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.55
+      value: 4.212
       objectReference: {fileID: 0}
     - target: {fileID: 3473269747767513384, guid: f570e460a1b72f04582f40fe66d80223,
         type: 3}
@@ -123480,10 +123482,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4713516469375447927, guid: f570e460a1b72f04582f40fe66d80223,
+        type: 3}
+      propertyPath: m_text
+      value: Level 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4754630601413906239, guid: f570e460a1b72f04582f40fe66d80223,
         type: 3}
       propertyPath: Level
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f570e460a1b72f04582f40fe66d80223, type: 3}
@@ -123565,10 +123572,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4713516469375447927, guid: f570e460a1b72f04582f40fe66d80223,
+        type: 3}
+      propertyPath: m_text
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4754630601413906239, guid: f570e460a1b72f04582f40fe66d80223,
         type: 3}
       propertyPath: Level
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f570e460a1b72f04582f40fe66d80223, type: 3}
