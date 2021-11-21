@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebbbff4feae46ac44a0626e80bd0e5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CodeAnimType: 2
   GatherItemType: 1
 --- !u!135 &6551505077651352575
 SphereCollider:

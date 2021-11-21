@@ -62,6 +62,15 @@ public class PlayerAnim : MonoBehaviour
         }
     }
     
+    public void PlayFlying()
+    {
+        if (!Animacer.IsPlaying(Fly) && PlayerController.PlayerState != PlayerState.Inviolable)
+        {
+            Animacer.Play(Fly);
+            PlayerController.PlayerState = PlayerState.Inviolable;
+        }
+    }
+    
     public void PlayFalling()
     {
         if (!Animacer.IsPlaying(Fall))
@@ -102,4 +111,6 @@ public class PlayerAnim : MonoBehaviour
            PlayerController.PlayerState = PlayerState.Running;
        };
     }
+
+    
 }

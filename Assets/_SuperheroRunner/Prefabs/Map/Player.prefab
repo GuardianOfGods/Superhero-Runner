@@ -1349,6 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1.5
+  SpeedUpMultiple: 1.5
   Level: 1
   PunchForce: 10
   PlayerState: 0
@@ -1358,6 +1359,7 @@ MonoBehaviour:
   IsOnTheAir: 0
   ListCol: []
   ListRid: []
+  SphereCollider: {fileID: 8403376117096511334}
 --- !u!114 &2430644853019562193
 MonoBehaviour:
   m_ObjectHideFlags: 0

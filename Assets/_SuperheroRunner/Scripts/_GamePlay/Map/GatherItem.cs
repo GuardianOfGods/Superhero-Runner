@@ -15,11 +15,16 @@ public class GatherItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerController player = other.GetComponent<PlayerController>();
             switch (GatherItemType)
             {
                 case GatherItemType.Gem:
                     SoundController.Instance.PlayFX(SoundType.CollectGold);
                     DiamondSpawn.Instance.SpawnDiamond(transform);
+                    break;
+                case GatherItemType.Shield:
+                    SoundController.Instance.PlayFX(SoundType.CollectArmor);
+                    player.SuperPowerUp();
                     break;
             }
             

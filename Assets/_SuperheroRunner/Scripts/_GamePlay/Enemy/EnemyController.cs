@@ -29,6 +29,22 @@ public class EnemyController : MonoBehaviour
         {
             PlayerController player = other.GetComponent<PlayerController>();
             bool isPlayerRightSide = player.transform.position.x > transform.position.x;
+
+            // Player Inviolable when gather shield
+            if (player.PlayerState == PlayerState.Inviolable)
+            {
+                if (isPlayerRightSide)
+                {
+                    EnemyAnim.PlayDieLeft();
+                }
+                else
+                {
+                    EnemyAnim.PlayDieRight();
+                }
+                player.LevelUp(Level);
+                return;
+            }
+            
             // Enemy win
             if (player.Level < Level)
             {

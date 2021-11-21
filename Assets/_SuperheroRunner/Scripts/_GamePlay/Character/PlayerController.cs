@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("GD only")]
     [Range(1,100)] public float Speed;
+    [Range(1, 10)] public float SpeedUpMultiple=1.5f;
 
     [Header("Dev only")] 
     [Range(1,10000)] public int Level;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTheAir;
     public List<Collider> ListCol;
     public List<Rigidbody> ListRid;
+    public SphereCollider SphereCollider;
     
     private float _currentSpeed;
     private float _xPosFence = 0.49f;
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
 
         Rigid.velocity = moveDirection;
     }
-    
+
     public void Jump(Vector3 forceAmount)
     {
         if (IsOnTheAir)
@@ -196,6 +198,26 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.OnLoseGame();
     }
 
+    public void Flying()
+    { 
+        PlayerAnim.PlayFlying();
+    }
+
+    public void SuperPowerUp()
+    {
+        float currentSpeed = Speed;
+        float currentRadius = SphereCollider.radius;
+        SphereCollider.radius = 0.3f;
+        Speed *= SpeedUpMultiple;
+        Flying();
+        DOTween.Sequence().AppendInterval(2f).AppendCallback(() =>
+        {
+            PlayerAnim.PlayRun();
+            Speed = currentSpeed;
+            SphereCollider.radius = currentRadius;
+        });
+    }
+
     public void LevelUp(int levelIncrease)
     {
         Level += levelIncrease;
@@ -215,6 +237,8 @@ public class PlayerController : MonoBehaviour
             PlayerAnim.PlayPunch();
         });
     }
+    
+    
 
     public void PunchBoss()
     {
@@ -232,4 +256,5 @@ public enum PlayerState
     Jumping,
     Falling,
     Landing,
+    Inviolable,
 }

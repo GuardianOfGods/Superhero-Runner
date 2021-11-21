@@ -19,5 +19,5 @@ MonoBehaviour:
   CostUpgradeFirstPower: 75
   CostPerUpgradePower: 15
   DiamondPerGather: 10
-  MaxLevel: 3
+  MaxLevel: 4
   DurationPopup: 0.5
