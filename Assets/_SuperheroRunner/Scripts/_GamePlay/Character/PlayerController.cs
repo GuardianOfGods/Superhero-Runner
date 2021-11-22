@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
             else if (PlayerState == PlayerState.Landing)
             {
                 PlayerAnim.PlayLand();
+                return;
             }
         }
         else
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
         }
         
             _ver = 1f;
-            Vector3 _moveDirection = new Vector3(_hor, 0.0f, _ver);
+            Vector3 _moveDirection = new Vector3(_hor, 0.0f, 1);
             _moveDirection = _moveDirection.normalized;
             Move(_moveDirection);
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -_xPosFence, _xPosFence),
@@ -151,14 +152,10 @@ public class PlayerController : MonoBehaviour
 
     void Move(Vector3 moveDirection)
     {
-        
-        moveDirection = moveDirection.z * Vector3.forward + moveDirection.x * Vector3.right;
-        moveDirection *= _currentSpeed;
-
         if(IsOnTheAir)
              moveDirection.y = Rigid.velocity.y - 0.01f * Time.deltaTime;
 
-        Rigid.velocity = moveDirection;
+        Rigid.velocity = new Vector3(moveDirection.x*_currentSpeed,moveDirection.y,_currentSpeed);
     }
 
     public void Jump(Vector3 forceAmount)
