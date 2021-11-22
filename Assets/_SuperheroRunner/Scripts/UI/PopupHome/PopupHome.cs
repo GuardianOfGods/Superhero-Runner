@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PopupHome : Popup
 {
+    public GameObject SoundOffImg;
+    public GameObject VibrationOffImg;
     public ButtonUpgradeLevel ButtonUpgradeLevel;
     public ButtonUpgradePower ButtonUpgradePower;
 
@@ -16,8 +18,24 @@ public class PopupHome : Popup
 
     public void Setup()
     {
+        SoundOffImg.SetActive(!Data.SoundState);
+        VibrationOffImg.SetActive(!Data.VibrateState);
         ButtonUpgradeLevel.Setup();
         ButtonUpgradePower.Setup();
+    }
+
+    public void OnClickSound()
+    {
+        SoundController.Instance.PauseBackground();
+        Data.SoundState = !Data.SoundState;
+        Setup();
+        SoundController.Instance.PlayBackground(SoundType.BackgroundMusic);
+    }
+    
+    public void OnClickVibrate()
+    {
+        Data.VibrateState = !Data.VibrateState;
+        Setup();
     }
     
     public void OnClickStart()

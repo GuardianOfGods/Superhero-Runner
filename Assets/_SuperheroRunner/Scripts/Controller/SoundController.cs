@@ -39,11 +39,10 @@ public class SoundController : Singleton<SoundController>
     {
         AudioClip clip = AudioClips[(int)soundType];
 
-        if (!clip || !Data.MusicState) return;
+        if (!clip || !Data.SoundState) return;
         
-       
-            BackgroundAudio.clip = clip;
-            BackgroundAudio.Play();
+        BackgroundAudio.clip = clip;
+        BackgroundAudio.Play();
         
     }
 
