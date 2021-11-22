@@ -11,6 +11,7 @@ public class PopupWin : Popup
     [Header("Component")]
     public DiamondGeneration DiamondGeneration;
     public TextMeshProUGUI TotalDiamondWinText;
+    public GameObject NextBtn;
 
     //Data
     private Level currentLevel;
@@ -38,7 +39,7 @@ public class PopupWin : Popup
                 Data.DiamondTotal += totalDiamondWin;
                 Data.CurrentLevel++;
             }
-        },null);
+        }, ()=>NextBtn.SetActive(true));
     }
 
     public void SetupData()
@@ -60,6 +61,7 @@ public class PopupWin : Popup
     public void SetupUI()
     {
         TotalDiamondWinText.text = $"+{totalDiamondWin}";
+        NextBtn.SetActive(false);
     }
 
     public void Setup()

@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DiamondGeneration: {fileID: 2308297771506651317}
   TotalDiamondWinText: {fileID: 5959281012266908859}
+  NextBtn: {fileID: 2302158157165590785}
 --- !u!1 &8607414219284037503
 GameObject:
   m_ObjectHideFlags: 0

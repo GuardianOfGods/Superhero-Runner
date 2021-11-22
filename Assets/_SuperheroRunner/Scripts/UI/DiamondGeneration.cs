@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
+using UnityEditor.Build.Pipeline;
+using Random = UnityEngine.Random;
 
 public class DiamondGeneration : MonoBehaviour
 {
@@ -88,7 +91,12 @@ public class DiamondGeneration : MonoBehaviour
     {
         return MoveTo(to.transform.position, coin, durationTarget, easeTarget);
     }
-    
+
+    private void OnDestroy()
+    {
+        
+    }
+
     public void SetNumberCoin(int _numberCoin)
     {
         numberCoin = _numberCoin;
