@@ -26,6 +26,10 @@ public class GatherItem : MonoBehaviour
                     SoundController.Instance.PlayFX(SoundType.CollectArmor);
                     player.SuperPowerUp();
                     break;
+                case GatherItemType.LevelUp:
+                    SoundController.Instance.PlayFX(SoundType.CollectArmor);
+                    player.LevelUp(1);
+                    break;
             }
             
             gameObject.SetActive(false);
@@ -45,6 +49,7 @@ public enum GatherItemType
 {
     Gem,
     Shield,
+    LevelUp
 }
 
 public enum CodeAnimType

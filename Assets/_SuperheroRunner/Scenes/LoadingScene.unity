@@ -245,7 +245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f556fe6111677419e2ce9c43b61b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FX_LevelUp: {fileID: 145256, guid: 7b117ab47ae99e74fbb811d488c1eb17, type: 3}
+  FxDatas:
+  - FxType: 0
+    FxPrefab: {fileID: 145256, guid: 7b117ab47ae99e74fbb811d488c1eb17, type: 3}
+    FxSound: {fileID: 0}
 --- !u!4 &519842530
 Transform:
   m_ObjectHideFlags: 0

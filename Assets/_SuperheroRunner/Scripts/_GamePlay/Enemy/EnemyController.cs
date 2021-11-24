@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [Header("Dev only")]
     public EnemyAnim EnemyAnim;
     public TextMeshProUGUI LevelText;
+    public SphereCollider MainCollider;
 
     private void Start()
     {
@@ -27,9 +28,10 @@ public class EnemyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            MainCollider.enabled = false;
             PlayerController player = other.GetComponent<PlayerController>();
             bool isPlayerRightSide = player.transform.position.x > transform.position.x;
-
+            
             // Player Inviolable when gather shield
             if (player.PlayerState == PlayerState.Inviolable)
             {
@@ -76,6 +78,8 @@ public class EnemyController : MonoBehaviour
                     EnemyAnim.PlayDieRight();
                 }
             }
+
+            
         }
     }
 }

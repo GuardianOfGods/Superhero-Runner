@@ -6,8 +6,7 @@ using UnityEngine;
 public class FxSpawnController : Singleton<FxSpawnController>
 {
     public List<FxData> FxDatas;
-    public GameObject FX_LevelUp;
-    
+
     private void Start()
     {
         DontDestroyOnLoad(this);
