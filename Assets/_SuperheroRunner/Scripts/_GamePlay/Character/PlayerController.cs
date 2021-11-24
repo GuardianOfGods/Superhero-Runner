@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [Range(1,10000)] public int Level;
     [Range(1,10000)] public float PunchForce = 10f;
     public PlayerState PlayerState;
+    public PlayerSkin PlayerSkin;
     public PlayerAnim PlayerAnim;
     public Rigidbody Rigid;
     public TextMeshProUGUI LevelText;
@@ -219,12 +220,16 @@ public class PlayerController : MonoBehaviour
     {
         Level += levelIncrease;
         LevelText.text = $"Level {Level}";
+        PlayerSkin.UpdateArmorParts();
+        FxSpawnController.Instance.SpawnFX(FxType.LevelUp,transform.position,transform);
     }
 
     public void UpdatePlayerLevel()
     {
         Level = Data.PlayerLevel;
         LevelText.text = $"Level {Level}";
+        PlayerSkin.UpdateArmorParts();
+        FxSpawnController.Instance.SpawnFX(FxType.LevelUp,transform.position,transform);
     }
 
     public void MoveToAPoint(Vector3 pos) 
