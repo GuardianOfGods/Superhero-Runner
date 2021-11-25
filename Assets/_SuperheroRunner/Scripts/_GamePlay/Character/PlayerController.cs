@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         if(IsOnTheAir)
              moveDirection.y = Rigid.velocity.y - 0.01f * Time.deltaTime;
 
-        Rigid.velocity = new Vector3(moveDirection.x*_currentSpeed,moveDirection.y,_currentSpeed);
+        Rigid.velocity = new Vector3(moveDirection.x*_currentSpeed*1.2f,moveDirection.y,_currentSpeed);
     }
 
     public void Jump(Vector3 forceAmount)

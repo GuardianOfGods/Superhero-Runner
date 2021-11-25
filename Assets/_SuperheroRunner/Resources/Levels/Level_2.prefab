@@ -13343,7 +13343,7 @@ Transform:
   m_Children:
   - {fileID: 6699586854741046258}
   m_Father: {fileID: 107223683968670992}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2194433483191795216
 GameObject:
@@ -60756,14 +60756,14 @@ SkinnedMeshRenderer:
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -1009151597026004791, guid: fb5baf575330224498c2b8b0cd5c2946, type: 3}
   m_Bones:
-  - {fileID: 8104198454935220146}
-  - {fileID: 8934503613374285512}
-  - {fileID: 3391063568845267919}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 3391063568845267919}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.0013676323, y: 0.06142624, z: 0.013240475}
     m_Extent: {x: 0.034257077, y: 0.040035482, z: 0.037398167}
@@ -64375,27 +64375,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96f6accbdc8ef11449b264cdfee86ae0, type: 3}
---- !u!4 &8934503613374285512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6670747122780612823, guid: 96f6accbdc8ef11449b264cdfee86ae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2841483950899228191}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3391063568845267919 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 603905388770233808, guid: 96f6accbdc8ef11449b264cdfee86ae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2841483950899228191}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &107223683968670992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2743279064816317199, guid: 96f6accbdc8ef11449b264cdfee86ae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2841483950899228191}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8104198454935220146 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6276081742448984493, guid: 96f6accbdc8ef11449b264cdfee86ae0,
     type: 3}
   m_PrefabInstance: {fileID: 2841483950899228191}
   m_PrefabAsset: {fileID: 0}
@@ -65329,7 +65311,7 @@ PrefabInstance:
     - target: {fileID: 4370939410955308674, guid: c356f8811b3f6d94cb153b25baec1ef6,
         type: 3}
       propertyPath: Force
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6082207073587118636, guid: c356f8811b3f6d94cb153b25baec1ef6,
         type: 3}
