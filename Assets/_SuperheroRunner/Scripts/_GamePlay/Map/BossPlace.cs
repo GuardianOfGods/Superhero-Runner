@@ -33,6 +33,7 @@ public class BossPlace : MonoBehaviour
             PlayerController player = other.GetComponent<PlayerController>();
             player.MoveToAPoint(PlayerPos.position);
             GameManager.Instance.LevelController.CurrentLevel.LevelState = LevelState.FinalCombat;
+            CameraController.Instance.MoveToTargetByTime(GameManager.Instance.LevelController.CurrentLevel.Boss.transform.GetChild(0).gameObject,1f);
         }
     }
 }

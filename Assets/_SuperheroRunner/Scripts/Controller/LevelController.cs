@@ -10,6 +10,7 @@ public class LevelController : Singleton<LevelController>
     public void PrepareLevel()
     {
         GenerateLevel(Data.CurrentLevel);
+        CameraController.Instance.ChangeTarget(CurrentLevel.Player.gameObject);
     }
     
     public void GenerateLevel(int indexLevel)

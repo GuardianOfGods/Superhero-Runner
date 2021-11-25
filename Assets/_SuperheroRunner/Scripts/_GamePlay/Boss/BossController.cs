@@ -80,7 +80,8 @@ public class BossController : MonoBehaviour
                 DoRagDoll();
                 LevelController.Instance.CurrentLevel.BonusPoint = bonusPlane.BonusValue;
                 GameManager.Instance.OnWinGame();
-                
+                CameraController.Instance.Target = null;
+
             }
         }
     }

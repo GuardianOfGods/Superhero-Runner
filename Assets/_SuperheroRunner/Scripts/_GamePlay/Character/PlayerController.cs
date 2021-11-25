@@ -239,8 +239,6 @@ public class PlayerController : MonoBehaviour
             PlayerAnim.PlayPunch();
         });
     }
-    
-    
 
     public void PunchBoss()
     {
