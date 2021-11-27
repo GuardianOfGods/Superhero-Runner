@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (PlayerState == PlayerState.Landing)
             {
-                PlayerAnim.PlayLand();
+                PlayerAnim.PlayRun();
                 return;
             }
         }
