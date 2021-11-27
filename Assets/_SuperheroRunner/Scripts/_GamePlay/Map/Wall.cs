@@ -11,6 +11,12 @@ public class Wall : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
+            if (player.PlayerState == PlayerState.Inviolable)
+            {
+                SoundController.Instance.PlayFX(SoundType.WallCrush);
+                WallBroken();
+                return;
+            }
             if (player.Level >= 10)
             {
                 if (player.transform.position.x > transform.position.x)

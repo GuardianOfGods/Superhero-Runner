@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     public List<Rigidbody> ListRid;
     public SphereCollider SphereCollider;
     
-    private float _currentSpeed;
     private float _xPosFence = 0.49f;
     private PopupInGame popupInGame;
 
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour
         Level = Data.PlayerLevel;
 
         SetupRagdoll();
-        _currentSpeed = Speed;
         LevelText.text = $"Level {Level}";
         PlayerState = PlayerState.Idle;
     }
@@ -77,14 +75,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerState == PlayerState.Idle )
-        {
-            PlayerAnim.PlayIdle();
-        }
         if (!GameManager.Instance.IsPlayerCanMove()  || PlayerState == PlayerState.Landing || PlayerState==PlayerState.Die)
         {
             return;
         }    
+        
+        if (PlayerState == PlayerState.Idle )
+        {
+            PlayerAnim.PlayIdle();
+        }
         
         // Check grounded
         RaycastHit hit;
@@ -155,8 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         if(IsOnTheAir)
              moveDirection.y = Rigid.velocity.y - 0.01f * Time.deltaTime;
-
-        Rigid.velocity = new Vector3(moveDirection.x*_currentSpeed*1.2f,moveDirection.y,_currentSpeed);
+        Rigid.velocity = new Vector3(moveDirection.x*Speed*1.2f,moveDirection.y,Speed);
     }
 
     public void Jump(Vector3 forceAmount)
@@ -191,6 +189,7 @@ public class PlayerController : MonoBehaviour
     public void DieRagdoll()
     {
         if (PlayerState==PlayerState.Die) return;
+        PlayerState = PlayerState.Die;
         SoundController.Instance.PlayFX(SoundType.PlayerDie);
         DoRagDoll();
         GameManager.Instance.OnLoseGame();
@@ -208,8 +207,12 @@ public class PlayerController : MonoBehaviour
         SphereCollider.radius = 0.3f;
         Speed *= SpeedUpMultiple;
         Flying();
+        FxSpawnController.Instance.SpawnFX(FxType.SpeedUp,transform,2f);
+        FxSpawnController.Instance.SpawnFX(FxType.LeftFlameThrowback,transform,2f);
+        FxSpawnController.Instance.SpawnFX(FxType.RightFlameThrowback,transform,2f);
         DOTween.Sequence().AppendInterval(2f).AppendCallback(() =>
         {
+            if (PlayerState==PlayerState.Die) return;
             PlayerAnim.PlayRun();
             Speed = currentSpeed;
             SphereCollider.radius = currentRadius;
@@ -243,6 +246,7 @@ public class PlayerController : MonoBehaviour
     public void PunchBoss()
     {
         SoundController.Instance.PlayFX(SoundType.Punch);
+        FxSpawnController.Instance.SpawnFX(FxType.Punch,transform);
         GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitedAway(PunchForce);
     }
 }
