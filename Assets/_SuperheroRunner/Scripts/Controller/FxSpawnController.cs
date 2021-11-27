@@ -17,12 +17,19 @@ public class FxSpawnController : Singleton<FxSpawnController>
         return FxDatas.Find(item => item.FxType == type);
     }
 
-    public void SpawnFX(FxType fxType, Vector3 position, Transform parent)
+    public void SpawnFX(FxType fxType, Vector3 position, Transform parent, float destroyTime = 3f)
     {
         FxData fxData = GetFxByType(fxType);
         GameObject obj = Instantiate(fxData.FxPrefab, parent, false);
         obj.transform.position = position;
-        Destroy(obj, 3f);
+        Destroy(obj, destroyTime);
+    }
+    
+    public void SpawnFX(FxType fxType, Transform parent, float destroyTime = 3f)
+    {
+        FxData fxData = GetFxByType(fxType);
+        GameObject obj = Instantiate(fxData.FxPrefab, parent, false);
+        Destroy(obj, destroyTime);
     }
 }
 
@@ -37,4 +44,8 @@ public class FxData
 public enum FxType
 {
     LevelUp,
+    SpeedUp,
+    Punch,
+    LeftFlameThrowback,
+    RightFlameThrowback,
 }
