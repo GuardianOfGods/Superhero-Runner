@@ -7,6 +7,7 @@ public class PopupHome : Popup
 {
     public GameObject SoundOffImg;
     public GameObject VibrationOffImg;
+    public GameObject Tutorial;
     public ButtonUpgradeLevel ButtonUpgradeLevel;
     public ButtonUpgradePower ButtonUpgradePower;
 
@@ -20,6 +21,7 @@ public class PopupHome : Popup
     {
         SoundOffImg.SetActive(!Data.SoundState);
         VibrationOffImg.SetActive(!Data.VibrateState);
+        Tutorial.SetActive(true);
         ButtonUpgradeLevel.Setup();
         ButtonUpgradePower.Setup();
     }
@@ -40,6 +42,7 @@ public class PopupHome : Popup
     
     public void OnClickStart()
     {
+        Tutorial.SetActive(false);
         PopupController.Instance.HideAll();
         PopupController.Instance.Show<PopupInGame>();
         GameManager.Instance.StartGame();
