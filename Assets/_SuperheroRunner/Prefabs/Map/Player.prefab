@@ -1422,8 +1422,26 @@ MonoBehaviour:
     _Clip: {fileID: 7400000, guid: 7f11f57c178f10847bd53c3ea50856ab, type: 2}
     _Speed: 2
     _NormalizedStartTime: 0
-  PunchLeft: {fileID: 7400000, guid: ab607980a36d7804f993557ba1da6ef6, type: 2}
-  PunchRight: {fileID: 7400000, guid: 84b7db2c9c9ff4d4ebfcea99821cba84, type: 2}
+  PunchLeft:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes:
+      - 0.73263896
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: ab607980a36d7804f993557ba1da6ef6, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0.36
+  PunchRight:
+    _FadeDuration: 0
+    _Events:
+      _NormalizedTimes:
+      - 0.95561594
+      _Callbacks: []
+      _Names: []
+    _Clip: {fileID: 7400000, guid: 84b7db2c9c9ff4d4ebfcea99821cba84, type: 2}
+    _Speed: 1
+    _NormalizedStartTime: 0.46956515
 --- !u!114 &1198587277418675111
 MonoBehaviour:
   m_ObjectHideFlags: 0

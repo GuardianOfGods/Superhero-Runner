@@ -17,8 +17,8 @@ public class PlayerAnim : MonoBehaviour
     public AnimationClip Jump;
     public AnimationClip Land;
     public ClipTransition _Punch;
-    public AnimationClip PunchLeft;
-    public AnimationClip PunchRight;
+    public ClipTransition PunchLeft;
+    public ClipTransition PunchRight;
     
     
     public void PlayIdle()
