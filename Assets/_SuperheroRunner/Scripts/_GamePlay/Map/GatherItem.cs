@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MoreMountains.NiceVibrations;
 using UnityEngine;
 
@@ -22,20 +23,26 @@ public class GatherItem : MonoBehaviour
             {
                 case GatherItemType.Gem:
                     SoundController.Instance.PlayFX(SoundType.CollectGold);
-                    DiamondSpawn.Instance.SpawnDiamond(transform);
+                    transform.DOMove(player.transform.position + Vector3.forward*0.5f, 0.2f).OnComplete(() =>
+                    {
+                        DiamondSpawn.Instance.SpawnDiamond(transform);
+                        gameObject.SetActive(false);
+                    });
                     break;
                 case GatherItemType.Shield:
                     SoundController.Instance.PlayFX(SoundType.CollectArmor);
                     player.SuperPowerUp();
+                    gameObject.SetActive(false);
                     break;
                 case GatherItemType.LevelUp:
                     
                     SoundController.Instance.PlayFX(SoundType.CollectArmor);
                     player.LevelUp(1);
+                    gameObject.SetActive(false);
                     break;
             }
             
-            gameObject.SetActive(false);
+            
         }
     }
 

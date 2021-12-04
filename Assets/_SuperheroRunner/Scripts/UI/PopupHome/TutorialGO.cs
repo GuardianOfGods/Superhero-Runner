@@ -9,13 +9,13 @@ public class TutorialGO : MonoBehaviour
     public GameObject Hand;
     private void OnEnable()
     {
-        Hand.transform.localPosition = new Vector3(300,Hand.transform.localPosition.y,Hand.transform.localPosition.z);
-        MoveHandX(-300, 300);
+        Hand.transform.localPosition = new Vector3(160,Hand.transform.localPosition.y,Hand.transform.localPosition.z);
+        MoveHandX(-160, 160);
     }
 
     private void MoveHandX(float value1, float value2)
     {
-        Hand.transform.DOLocalMoveX(value1, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+        Hand.transform.DOLocalMoveX(value1, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
             MoveHandX(value2, value1);
         });

@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
                     EnemyAnim.PlayPunchRight();
                 }
                 
-                player.DieNormal();
+                player.DieNormal(true);
             }
             // Player Win
             else

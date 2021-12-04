@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.NiceVibrations;
@@ -12,6 +13,11 @@ public class PopupHome : Popup
     public ButtonUpgradeLevel ButtonUpgradeLevel;
     public ButtonUpgradePower ButtonUpgradePower;
 
+    public void Start()
+    {
+        EventController.DiamondTotalChanged += SetupUpgradeBtns;
+    }
+
     protected override void BeforeShow()
     {
         base.BeforeShow();
@@ -23,8 +29,15 @@ public class PopupHome : Popup
         SoundOffImg.SetActive(!Data.SoundState);
         VibrationOffImg.SetActive(!Data.VibrateState);
         Tutorial.SetActive(true);
-        ButtonUpgradeLevel.Setup();
-        ButtonUpgradePower.Setup();
+        SetupUpgradeBtns();
+    }
+
+    public void SetupUpgradeBtns()
+    {
+        int costlevel = ConfigController.Game.GetCostToUpgradeLevel(Data.PlayerLevel + 1);
+        ButtonUpgradeLevel.Setup(Data.DiamondTotal<costlevel);
+        int costPower = ConfigController.Game.GetCostToUpgradePower(Data.PlayerPower + 1);
+        ButtonUpgradePower.Setup(Data.DiamondTotal<costPower);
     }
 
     public void OnClickSound()
@@ -54,12 +67,13 @@ public class PopupHome : Popup
         int cost = ConfigController.Game.GetCostToUpgradeLevel(Data.PlayerLevel + 1);
         if (Data.DiamondTotal >= cost)
         {
-            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.MediumImpact);
+            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
             Data.DiamondTotal -= cost;
             Data.PlayerLevel++;
             LevelController.Instance.CurrentLevel.Player.UpdatePlayerLevel();
         }
-        ButtonUpgradeLevel.Setup();
+
+        SetupUpgradeBtns();
     }
     
     public void OnClickPowerUpgrade()
@@ -68,17 +82,23 @@ public class PopupHome : Popup
         int cost = ConfigController.Game.GetCostToUpgradePower(Data.PlayerPower + 1);
         if (Data.DiamondTotal >= cost)
         {
-            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.MediumImpact);
+            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
             Data.DiamondTotal -= cost;
             Data.PlayerPower++;
             LevelController.Instance.CurrentLevel.Player.UpdatePlayerPower();
         }
-        ButtonUpgradePower.Setup();
+
+        SetupUpgradeBtns();
     }
 
     public void OnClickNext()
     {
         Data.CurrentLevel++;
         GameManager.Instance.ReturnHome();
+    }
+
+    public void OnClickAddDiamond()
+    {
+        Data.DiamondTotal += 500;
     }
 }

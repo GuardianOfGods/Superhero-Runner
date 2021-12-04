@@ -32,7 +32,7 @@ public class Wall : MonoBehaviour
             }
             else
             {
-                player.DieNormal();
+                player.DieNormal(false);
             }
         }
     }

@@ -9,7 +9,7 @@ public class TrapCollider : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
-            other.GetComponent<PlayerController>().DieNormal();
+            other.GetComponent<PlayerController>().DieNormal(false);
         }
     }
 }

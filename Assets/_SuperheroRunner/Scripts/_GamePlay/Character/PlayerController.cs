@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             return;
         }    
         
-        if (PlayerState == PlayerState.Idle )
+        if (PlayerState == PlayerState.Idle)
         {
             PlayerAnim.PlayIdle();
         }
@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         if(IsOnTheAir)
              moveDirection.y = Rigid.velocity.y - 0.01f * Time.deltaTime;
-        Rigid.velocity = new Vector3(moveDirection.x*Speed*1.2f,moveDirection.y,Speed);
+        Rigid.velocity = new Vector3(moveDirection.x*Speed*1.5f,moveDirection.y,Speed);
     }
 
     public void Jump(Vector3 forceAmount)
@@ -177,11 +177,13 @@ public class PlayerController : MonoBehaviour
         SoundController.Instance.PlayFX(SoundType.Punch);
         PlayerAnim.PlayPunchRight();
     }
+    
+    
 
-    public void DieNormal()
+    public void DieNormal(bool isEnemyPunch)
     {
         if (PlayerState==PlayerState.Die) return;
-        Rigid.velocity = Vector3.back*2;
+        Rigid.velocity = isEnemyPunch?Vector3.back*2:Vector3.zero;
         SoundController.Instance.PlayFX(SoundType.PlayerDie);
         PlayerAnim.PlayDie();
         GameManager.Instance.OnLoseGame();
