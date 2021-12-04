@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 public class GatherItem : MonoBehaviour
@@ -16,6 +17,7 @@ public class GatherItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
+            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
             switch (GatherItemType)
             {
                 case GatherItemType.Gem:
@@ -27,6 +29,7 @@ public class GatherItem : MonoBehaviour
                     player.SuperPowerUp();
                     break;
                 case GatherItemType.LevelUp:
+                    
                     SoundController.Instance.PlayFX(SoundType.CollectArmor);
                     player.LevelUp(1);
                     break;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 public class PopupLose : Popup
@@ -28,6 +29,7 @@ public class PopupLose : Popup
 
     public void OnClickRetry()
     {
+        if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
         GameManager.Instance.ReturnHome();
     }
 }

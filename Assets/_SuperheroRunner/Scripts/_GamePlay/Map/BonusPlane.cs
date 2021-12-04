@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class BonusPlane : MonoBehaviour
     {
         if (isBreak) return;
         isBreak = true;
+        if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
         SoundController.Instance.PlayFX(SoundType.WallCrush);
         Bricks.ForEach(item=>item.isKinematic=false);
         Bricks[0].gameObject.SetActive(false);

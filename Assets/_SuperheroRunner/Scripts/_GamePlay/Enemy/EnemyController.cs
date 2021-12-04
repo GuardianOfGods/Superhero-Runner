@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using TMPro;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
             // Player Inviolable when gather shield
             if (player.PlayerState == PlayerState.Inviolable)
             {
+                if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
                 if (isPlayerRightSide)
                 {
                     EnemyAnim.PlayDieLeft();
@@ -65,6 +67,7 @@ public class EnemyController : MonoBehaviour
             // Player Win
             else
             {
+                if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
                 player.PlayerState = PlayerState.Attacking;
                 player.LevelUp(Level);
                 if (isPlayerRightSide)

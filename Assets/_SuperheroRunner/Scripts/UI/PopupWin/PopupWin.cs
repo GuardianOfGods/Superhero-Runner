@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,6 +36,7 @@ public class PopupWin : Popup
         {
             if (!IsFirstCoinMoved)
             {
+                if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.LightImpact);
                 IsFirstCoinMoved = true;
                 Data.DiamondTotal += totalDiamondWin;
                 Data.CurrentLevel++;

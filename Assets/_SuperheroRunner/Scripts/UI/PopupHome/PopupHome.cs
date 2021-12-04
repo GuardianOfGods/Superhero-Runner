@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -53,6 +54,7 @@ public class PopupHome : Popup
         int cost = ConfigController.Game.GetCostToUpgradeLevel(Data.PlayerLevel + 1);
         if (Data.DiamondTotal >= cost)
         {
+            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.MediumImpact);
             Data.DiamondTotal -= cost;
             Data.PlayerLevel++;
             LevelController.Instance.CurrentLevel.Player.UpdatePlayerLevel();
@@ -66,6 +68,7 @@ public class PopupHome : Popup
         int cost = ConfigController.Game.GetCostToUpgradePower(Data.PlayerPower + 1);
         if (Data.DiamondTotal >= cost)
         {
+            if (Data.VibrateState) MMVibrationManager.Haptic (HapticTypes.MediumImpact);
             Data.DiamondTotal -= cost;
             Data.PlayerPower++;
             LevelController.Instance.CurrentLevel.Player.UpdatePlayerPower();
