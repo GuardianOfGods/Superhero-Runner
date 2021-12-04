@@ -14,6 +14,7 @@ public class PopupHome : Popup
     public GameObject SettingBar;
     public ButtonUpgradeLevel ButtonUpgradeLevel;
     public ButtonUpgradePower ButtonUpgradePower;
+    public ProgressLevel ProgressLevel;
 
     private bool isOpenSetting = false;
 
@@ -26,12 +27,13 @@ public class PopupHome : Popup
     {
         base.BeforeShow();
         Setup();
+        ProgressInGame.Instance.gameObject.SetActive(false);
     }
-
     public void Setup()
     {
         SoundOffImg.SetActive(!Data.SoundState);
         VibrationOffImg.SetActive(!Data.VibrateState);
+        ProgressLevel.Setup();
         Tutorial.SetActive(true);
         SetupUpgradeBtns();
     }
@@ -63,6 +65,7 @@ public class PopupHome : Popup
         Tutorial.SetActive(false);
         PopupController.Instance.HideAll();
         PopupController.Instance.Show<PopupInGame>();
+        ProgressInGame.Instance.gameObject.SetActive(true);
         GameManager.Instance.StartGame();
     }
 
