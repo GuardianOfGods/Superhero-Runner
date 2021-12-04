@@ -2,8 +2,16 @@ fileFormatVersion: 2
 guid: 85618c4b8f5ed824986e5af99f7aa148
 ModelImporter:
   serializedVersion: 21100
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -3970738252259940056
+    second: GemsAnimation
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GemmaMat
+    second: {fileID: 2100000, guid: 2775827164cc924478a54eb3b829ad9e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -90,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.59999996
+    globalScale: 60
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -10,9 +10,8 @@ public class EnemyAnim : MonoBehaviour
     public AnimationClip Idle;
     public AnimationClip DieLeft;
     public AnimationClip DieRight;
-    public AnimationClip PunchLeft;
-    public AnimationClip PunchRight;
-
+    public ClipTransition PunchLeft;
+    public ClipTransition PunchRight;
     public void PlayIdle()
     {
         Animacer.Play(Idle);

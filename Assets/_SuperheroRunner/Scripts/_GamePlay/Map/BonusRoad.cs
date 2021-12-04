@@ -12,6 +12,7 @@ public class BonusRoad : MonoBehaviour
     [Range(1, 100)] public int PowerToReach = 1;
     [Header("DEV only")]
     public BonusPlane PlanePrefab;
+    public BonusPlane MaxPlanePrefab;
 
     public List<BonusPlane> RoadList;
     
@@ -25,6 +26,14 @@ public class BonusRoad : MonoBehaviour
             plane.Setup(ValueBonus+DistanceValueBonus*i,i*PowerToReach);
             plane.transform.localPosition = new Vector3(0, 0, PlaneDistance * i);
             RoadList.Add(plane);
+            if (i == NumberPlane - 1)
+            {
+                BonusPlane planeMax = Instantiate(MaxPlanePrefab, transform);
+                planeMax.Setup(ValueBonus+DistanceValueBonus*(i+1),(i+1)*PowerToReach);
+                planeMax.transform.localPosition = new Vector3(0, 0, PlaneDistance * (i+1));
+                RoadList.Add(planeMax);
+            }
         }
+        
     }
 }

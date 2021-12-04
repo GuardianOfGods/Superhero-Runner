@@ -62,11 +62,13 @@ public class PopupHome : Popup
     
     public void OnClickPowerUpgrade()
     {
+        if (Data.PlayerPower == 12) return;
         int cost = ConfigController.Game.GetCostToUpgradePower(Data.PlayerPower + 1);
         if (Data.DiamondTotal >= cost)
         {
             Data.DiamondTotal -= cost;
             Data.PlayerPower++;
+            LevelController.Instance.CurrentLevel.Player.UpdatePlayerPower();
         }
         ButtonUpgradePower.Setup();
     }

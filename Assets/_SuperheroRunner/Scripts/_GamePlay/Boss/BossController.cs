@@ -18,6 +18,7 @@ public class BossController : MonoBehaviour
     public Collider MainCollider;
     public List<Collider> ListCol;
     public List<Rigidbody> ListRid;
+    public bool IsPunched = false;
 
     public void Start()
     {
@@ -42,14 +43,15 @@ public class BossController : MonoBehaviour
     }
     
     
-    public void DoHitedAway(float force)
+    public void DoHitedAway()
     {
-        Rigid.velocity = Vector3.forward*force;
+        IsPunched = true;
         BossAnim.PlayHitAway();
     }
 
     public void DoRagDoll()
     {
+        IsPunched = false;
         Rigid.velocity = Vector3.zero;
         BossAnim.Animacer.Animator.enabled = false;
         ListCol.ForEach(item=>
@@ -68,6 +70,7 @@ public class BossController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (IsPunched) Rigid.velocity = Vector3.forward*8;
         RaycastHit hit;
         
         if (Physics.Raycast(Rigid.transform.position, Rigid.transform.TransformDirection(Vector3.back), out hit, .5f, LayerMask.GetMask("Wall")))
@@ -75,7 +78,7 @@ public class BossController : MonoBehaviour
             Debug.DrawRay(Rigid.transform.position, Rigid.transform.TransformDirection(Vector3.back) * hit.distance, Color.red);
             BonusPlane bonusPlane = hit.transform.gameObject.GetComponent<BonusPlane>();
             bonusPlane.TurnOnPhysicWall();
-            if (bonusPlane.LevelToReach == Data.PlayerPower && GameManager.Instance.GameState == GameState.PlayingGame)
+            if ((bonusPlane.LevelToReach == Data.PlayerPower || bonusPlane.IsFinalBonusWall) && GameManager.Instance.GameState == GameState.PlayingGame)
             {
                 DoRagDoll();
                 LevelController.Instance.CurrentLevel.BonusPoint = bonusPlane.BonusValue;

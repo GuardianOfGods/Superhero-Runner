@@ -181,6 +181,7 @@ public class PlayerController : MonoBehaviour
     public void DieNormal()
     {
         if (PlayerState==PlayerState.Die) return;
+        Rigid.velocity = Vector3.back*2;
         SoundController.Instance.PlayFX(SoundType.PlayerDie);
         PlayerAnim.PlayDie();
         GameManager.Instance.OnLoseGame();
@@ -234,6 +235,11 @@ public class PlayerController : MonoBehaviour
         PlayerSkin.UpdateArmorParts();
         FxSpawnController.Instance.SpawnFX(FxType.LevelUp,transform.position,transform);
     }
+    
+    public void UpdatePlayerPower()
+    {
+        FxSpawnController.Instance.SpawnFX(FxType.LevelUp,transform.position,transform);
+    }
 
     public void MoveToAPoint(Vector3 pos) 
     {
@@ -247,7 +253,7 @@ public class PlayerController : MonoBehaviour
     {
         SoundController.Instance.PlayFX(SoundType.Punch);
         FxSpawnController.Instance.SpawnFX(FxType.Punch,transform);
-        GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitedAway(PunchForce);
+        GameManager.Instance.LevelController.CurrentLevel.Boss.DoHitedAway();
     }
 }
 

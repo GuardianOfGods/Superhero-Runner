@@ -206,7 +206,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationCamera: {fileID: 2050551916}
+  Target: {fileID: 0}
 --- !u!4 &857483767
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class BonusPlane : MonoBehaviour
     [Header("Data")]
     public float BonusValue;
     public int LevelToReach;
+    public bool IsFinalBonusWall;
 
     [Header("Components")]
     public List<Rigidbody> Bricks;
@@ -35,6 +36,7 @@ public class BonusPlane : MonoBehaviour
 
     public void SetupUI()
     {
+        if (IsFinalBonusWall) return;
         ValueText.text = $"X {BonusValue}";
     }
 
