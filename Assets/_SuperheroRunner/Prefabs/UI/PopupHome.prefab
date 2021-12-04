@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 5117456045946940156}
   - component: {fileID: 2781701671108283730}
   - component: {fileID: 7510124942785512809}
+  - component: {fileID: 8753728645801258809}
   m_Layer: 5
   m_Name: SettingBtn
   m_TagString: Untagged
@@ -631,9 +632,9 @@ RectTransform:
   m_Father: {fileID: 1857717476532553237}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -76.5}
   m_SizeDelta: {x: 88, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2781701671108283730
@@ -674,6 +675,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8753728645801258809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319717481747202000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfcf405286e2c74fa0638d8bb9a6e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -5522501779321461619}
+        m_TargetAssemblyTypeName: PopupHome, Assembly-CSharp
+        m_MethodName: OnChangSizeSettingBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPress:
+    m_PersistentCalls:
+      m_Calls: []
+  canClick: 1
 --- !u!1 &2447190201708092457
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,6 +838,7 @@ GameObject:
   - component: {fileID: 2650029707026717469}
   - component: {fileID: 8025637662429999725}
   - component: {fileID: 8550174722738655191}
+  - component: {fileID: 5036414801902278751}
   m_Layer: 5
   m_Name: SoundBtn
   m_TagString: Untagged
@@ -828,9 +861,9 @@ RectTransform:
   m_Father: {fileID: 1857717476532553237}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -231.00002}
   m_SizeDelta: {x: 88, y: 91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2650029707026717469
@@ -902,6 +935,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canClick: 1
+--- !u!114 &5036414801902278751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159210613337076453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &3375404911880235884
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +959,7 @@ GameObject:
   - component: {fileID: 1857717476532553237}
   - component: {fileID: 6467950848672380632}
   - component: {fileID: 1237819720628359396}
-  - component: {fileID: 519000398603927892}
+  - component: {fileID: 2059303041650976345}
   m_Layer: 5
   m_Name: SettingBar
   m_TagString: Untagged
@@ -941,7 +987,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 140, y: -150}
-  m_SizeDelta: {x: 113, y: 454}
+  m_SizeDelta: {x: 113, y: 140}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6467950848672380632
 CanvasRenderer:
@@ -981,7 +1027,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &519000398603927892
+--- !u!114 &2059303041650976345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -990,23 +1036,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3375404911880235884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ShowMaskGraphic: 1
 --- !u!1 &3479973235420700443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1460,7 @@ GameObject:
   - component: {fileID: 127954841502276613}
   - component: {fileID: 2074415916181910991}
   - component: {fileID: 3105527491929925816}
+  - component: {fileID: 3049184874630766568}
   m_Layer: 5
   m_Name: VibrationBtn
   m_TagString: Untagged
@@ -1449,9 +1483,9 @@ RectTransform:
   m_Father: {fileID: 1857717476532553237}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -381.5}
   m_SizeDelta: {x: 95, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &127954841502276613
@@ -1523,6 +1557,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canClick: 1
+--- !u!114 &3049184874630766568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587308920726853235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &4611167026874210276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2508,7 @@ MonoBehaviour:
   SoundOffImg: {fileID: 1662204050073111081}
   VibrationOffImg: {fileID: 6612937565183312068}
   Tutorial: {fileID: 7422627301546192257}
+  SettingBar: {fileID: 3375404911880235884}
   ButtonUpgradeLevel: {fileID: 7880056722242298214}
   ButtonUpgradePower: {fileID: 472583228479548671}
 --- !u!1 &7422627301546192257

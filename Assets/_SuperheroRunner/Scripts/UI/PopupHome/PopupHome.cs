@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MoreMountains.NiceVibrations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,8 +11,11 @@ public class PopupHome : Popup
     public GameObject SoundOffImg;
     public GameObject VibrationOffImg;
     public GameObject Tutorial;
+    public GameObject SettingBar;
     public ButtonUpgradeLevel ButtonUpgradeLevel;
     public ButtonUpgradePower ButtonUpgradePower;
+
+    private bool isOpenSetting = false;
 
     public void Start()
     {
@@ -100,5 +104,19 @@ public class PopupHome : Popup
     public void OnClickAddDiamond()
     {
         Data.DiamondTotal += 500;
+    }
+
+    public void OnChangSizeSettingBar()
+    {
+        if (!isOpenSetting)
+        {
+            SettingBar.GetComponent<RectTransform>().sizeDelta = new Vector2(113,454);
+        }
+        else
+        {
+            SettingBar.GetComponent<RectTransform>().sizeDelta = new Vector2(113,140);
+        }
+
+        isOpenSetting = !isOpenSetting;
     }
 }
